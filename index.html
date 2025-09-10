@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dalton Neres - Portfólio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <div class="acessibilidade-container">
+    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
+    <div class="acessibilidade-menu" id="acessibilidadeMenu">
+      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
+      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
+      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
+    </div>
+  </div>
+
+  <section class="banner fade-in">
+    <div class="overlay">
+      <h1>Dalton José Neres</h1>
+      <h2 id="text-dinamico">Full-Stack developer</h2>
+      <p>Transformando ideias em experiências digitais.</p>
+      <a href="projetos.html" class="btn">Conheça mais do meu trabalho</a>
+    </div>
+  </section>
+
+  <script>
+    let tamanhoFonteAtual = 100;
+    let contrasteAtivo = false;
+
+    function ajustarFonte(acao) {
+      if (acao === 'aumentar') {
+        tamanhoFonteAtual += 10;
+      } else if (acao === 'diminuir') {
+        tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
+      }
+      document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+    }
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+
+    function toggleAcessibilidade() {
+      const menu = document.getElementById("acessibilidadeMenu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+
+  <script>
+    let contrasteativo = false;
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+  </script>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p>Dalton José Neres - 2025 - Todos os direitos reservados.</p>
+    <p>Salto do Lontra - PR — Criatividade e inovação em cada projeto.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

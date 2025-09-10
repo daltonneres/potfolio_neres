@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sobre - Dalton Neres</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <div class="acessibilidade-container">
+    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
+    <div class="acessibilidade-menu" id="acessibilidadeMenu">
+      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
+      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
+      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
+    </div>
+  </div>
+
+  <section class="sobre fade-in">
+    <h2>Sobre Mim</h2>
+    <p>Fala aí! Me chamo <strong>Dalton José Neres</strong>, tenho 17 anos, sou estudante do 3º ano do Ensino Médio e
+      apaixonado por tecnologia desde que me entendo por gente.</p>
+    <p>Sou natural de <strong>Salto do Lontra–PR</strong>, uma pequena cidade do interior do Paraná, onde venho
+      construindo meus primeiros passos como desenvolvedor.</p>
+    <p>Meu foco profissional é claro: quero atuar como <strong>desenvolvedor web</strong>, com ênfase em
+      <strong>front-end</strong> e <strong>banco de dados</strong> e claro que também a mais falado <strong>Inteligência
+        Artificial</strong>. Além disso, já estou me preparando para cursar
+      <strong>Engenharia de Software</strong> assim que concluir o ensino médio.
+    </p>
+    <p>Essa paixão por tecnologia, acredito, já corre no sangue. Sempre fui curioso, determinado a aprender mais,
+      explorar novas ferramentas e transformar ideias em soluções reais.</p>
+    <p>Meu objetivo? Criar experiências acessíveis, simples e poderosas — usando desde tecnologias básicas até
+      <strong>inteligência artificial</strong>, pra ajudar pessoas de verdade a resolverem problemas de verdade.
+    </p>
+    <p>O que eu quero? <strong>Levar tecnologia para mudar vidas.</strong>Porque cada linha de código pode criar um
+      futuro melhor — e eu não vou parar até chegar lá.</p>
+    <p><strong>Esse é só o começo... e espero te ver comigo nos próximos capítulos.</strong></p>
+    <img src="dalton.jpeg" alt="Dalton Neres" title="Desenvolvedor: Dalton Neres" class="profile-pic">
+  </section>
+  <section class="skills fade-in">
+    <h2>Minhas Habilidades</h2>
+    <div class="skills-container">
+      <div class="skill-card">HTML5</div>
+      <div class="skill-card">CSS3</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">React</div>
+    </div>
+  </section>
+
+  <section class="skills fade-in">
+    <h2>Habilidades que serão conectas em breve</h2>
+    <div class="skills-container">
+      <div class="skill-card">Banco de Dados</div>
+      <div class="skill-card">Inteligencia Articial</div>
+      <div class="skill-card">Designer UX/UI</div>
+      <div class="skill-card">Python</div>
+      <div class="skill-card">Node.JS</div>
+    </div>
+  </section>
+
+  <div class="btn-container">
+    <a href="index.html" class="btn">Voltar para o Início</a>
+  </div>
+
+  <script>
+    let tamanhoFonteAtual = 100;
+    let contrasteAtivo = false;
+
+    function ajustarFonte(acao) {
+      if (acao === 'aumentar') {
+        tamanhoFonteAtual += 10;
+      } else if (acao === 'diminuir') {
+        tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
+      }
+      document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+    }
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+
+    function toggleAcessibilidade() {
+      const menu = document.getElementById("acessibilidadeMenu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+
+  <script>
+    let contrasteativo = false;
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+  </script>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p>Dalton José Neres - 2025 - Todos os direitos reservados.</p>
+    <p>Salto do Lontra - PR — Criatividade e inovação em cada projeto.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

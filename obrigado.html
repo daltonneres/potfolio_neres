@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Obrigado!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="acessibilidade-container">
+    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
+    <div class="acessibilidade-menu" id="acessibilidadeMenu">
+      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
+      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
+      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
+    </div>
+  </div>
+
+  <section class="fade-in" style="text-align:center; padding: 4rem;">
+<h2>Tudo certo por aqui! 🎯</h2>
+<p>Sua mensagem foi enviada. Em breve, eu volto com uma resposta — bora construir algo incrível!</p>
+    <a href="index.html" class="btn">Voltar para o Início</a>
+  </section>
+
+<script>
+    let tamanhoFonteAtual = 100;
+    let contrasteAtivo = false;
+
+    function ajustarFonte(acao) {
+      if (acao === 'aumentar') {
+        tamanhoFonteAtual += 10;
+      } else if (acao === 'diminuir') {
+        tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
+      }
+      document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+    }
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+
+    function toggleAcessibilidade() {
+      const menu = document.getElementById("acessibilidadeMenu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+
+  <script>
+    let contrasteativo = false;
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+  </script>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+<p>Dalton José Neres - 2025 - Todos os direitos reservados.</p>
+<p>Salto do Lontra - PR — Criatividade e inovação em cada projeto.</p>
+  </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

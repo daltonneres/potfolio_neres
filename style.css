@@ -1,0 +1,324 @@
+/* Reset e base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Navegação */
+nav {
+  background-color: #111;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #aaa;
+}
+
+/* Banner */
+.banner {
+  height: 70vh;
+  background: linear-gradient(to right, #000, #3498db, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.overlay p {
+  font-size: 1rem;
+  margin: 1rem 0;
+  color: #ccc;
+}
+
+/* Seções */
+.sobre, .skills, section {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* Foto de perfil */
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin-top: 1rem;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+/* Skills */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-card {
+  background-color: #111;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: 2px solid #3498db;
+  transition: transform 0.3s;
+}
+
+.skill-card:hover {
+  transform: scale(1.1);
+  background-color: #222;
+}
+
+/* Formulário */
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea, button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-family: inherit;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Animação */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Links padrão */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #3498db;
+}
+
+/* Botão minimalista */
+.btn {
+  display: inline-block;
+  margin: 2rem auto;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: #3498db;
+  color: #fff;
+}
+
+/* Container centralizador do botão */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+/* Rodapé */
+.footer {
+  background:#000;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+/* Menu de Acessibilidade */
+.acessibilidade-container {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.acessibilidade-toggle {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 5px; /* Menos largura */
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: transform 0.4s ease;
+  writing-mode: vertical-rl;  /* Faz o texto ficar deitado na vertical */
+  text-orientation: mixed;
+}
+
+.acessibilidade-toggle.rotacionado {
+  transform: rotate(90deg);
+}
+
+.acessibilidade-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #000;
+  border-radius: 8px 0 0 8px;
+  padding: 10px;
+  margin-top: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.font-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.font-btn:hover {
+  background-color: #3498db;
+}
+
+body.alto-contraste {
+  background-color: #000 !important;
+  color: #FFD700 !important;
+}
+
+body.alto-contraste header,
+body.alto-contraste .content-section,
+body.alto-contraste .gallery-item,
+body.alto-contraste .recipe-item,
+body.alto-contraste .produto,
+body.alto-contraste .footer,
+body.alto-contraste .weather-button,
+body.alto-contraste .botao-link,
+body.alto-contraste .ampliar-btn,
+body.alto-contraste .btn-receitas,
+body.alto-contraste .btn-galeria {
+  background-color: #000 !important;
+  color: #FFD700 !important;
+  border: 1px solid #FFD700;
+}
+
+body.alto-contraste a {
+  color: #FFD700 !important;
+}
+
+body.alto-contraste img {
+  filter: brightness(0.8) contrast(1.5);
+}
+
+body.alto-contraste .intro {
+  background: #000 !important;
+  color: #FFD700 !important;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.projeto-card {
+  background-color: #111;
+  border: 1px solid #333;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.projeto-card h3 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.projeto-card p {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background-color: #0af;
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #08c;
+  color: #fff;
+}

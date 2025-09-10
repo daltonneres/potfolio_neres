@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Contato - Dalton Neres</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <div class="acessibilidade-container">
+    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
+    <div class="acessibilidade-menu" id="acessibilidadeMenu">
+      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
+      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
+      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
+    </div>
+  </div>
+
+  <section class="fade-in">
+    <h2>Tem um projeto? Bora tirar do papel.</h2>
+    <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
+    <form action="https://formsubmit.co/dev.neresdalton@gmail.comm" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu email" required>
+      <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+
+      <!-- Proteções extras -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://daltonneres.github.io/portfolio_neres/obrigado.html">
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <section class="fade-in contatos">
+    <h2>Entre em contato comigo, conheça mais sobre meu trabalho e vamos trabalhar juntos!</h2>
+    <p><strong>Email:</strong> <a href="mailto:dev.neresdalton@gmail.com">dev.neresdalton@gmail.com</a></p>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/5546920007229" target="_blank">(46) 92000-7229</a></p>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/dalton_neres" target="_blank">@dalton_neres</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/daltonneres" target="_blank">daltonneres</a></p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dalton-jos%C3%A9-neres/" target="_blank">Dalton José Neres</a></p>
+  </section>
+
+  <div class="btn-container">
+    <a href="index.html" class="btn">Voltar para o Início</a>
+  </div>
+
+  <script>
+    let tamanhoFonteAtual = 100;
+    let contrasteAtivo = false;
+
+    function ajustarFonte(acao) {
+      if (acao === 'aumentar') {
+        tamanhoFonteAtual += 10;
+      } else if (acao === 'diminuir') {
+        tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
+      }
+      document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+    }
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+
+    function toggleAcessibilidade() {
+      const menu = document.getElementById("acessibilidadeMenu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+
+  <script>
+    let contrasteativo = false;
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+  </script>
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p>Dalton José Neres - 2025 - Todos os direitos reservados.</p>
+    <p>Salto do Lontra - PR — Criatividade e inovação em cada projeto.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

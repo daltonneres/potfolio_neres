@@ -4,7 +4,7 @@ Este repositório contém meu portfólio pessoal, desenvolvido em **HTML, CSS e 
 O objetivo deste projeto é apresentar minha trajetória, projetos realizados e formas de contato.
 
 ## 🌐 Demonstração
-🔗 [Acesse meu portfólio online](https://daltonneres.github.io/portfolio_daltonneres)
+🔗 [Acesse meu portfólio online](https://daltonneres.github.io/portfolio_neres)
 
 ## 📌 Estrutura do Projeto
 - **index.html** → Página inicial com destaque para meu nome, profissão e acesso rápido aos projetos.  

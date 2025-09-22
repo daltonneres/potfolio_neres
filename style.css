@@ -113,15 +113,19 @@ input, textarea, button {
 }
 
 button {
-  background-color: #3498db;
-  color: white;
+  background-color: #3498db; /* azul */
+  color: #000;               /* texto preto */
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #3498db; /* mantém azul ou use #2980b9 para escurecer */
+  color: #fff;               /* texto fica branco ao passar o mouse */
 }
 
 /* Animação */
@@ -157,22 +161,21 @@ a:hover {
 
 /* Botão minimalista */
 .btn {
-  display: inline-block;
-  margin: 2rem auto;
-  padding: 0.8rem 2rem;
-  background: transparent;
-  color: #3498db;
-  border: 2px solid #3498db;
-  border-radius: 0.5rem;
+  background-color: #3498db; /* azul */
+  color: #000;               /* texto preto */
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s;
+  border: none; /* se quiser sem borda */
 }
 
 .btn:hover {
-  background: #3498db;
-  color: #fff;
+  background-color: #3498db; /* mantém azul, pode escurecer se quiser */
+  color: #fff;               /* texto branco ao passar o mouse */
 }
+
 
 /* Container centralizador do botão */
 .btn-container {
@@ -321,4 +324,34 @@ body {
 .btn:hover {
   background-color: #08c;
   color: #fff;
+}
+
+.projetos-estudantis h2 {
+  color: #3498db; /* Azul */
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.projetos-profissionais h2 {
+  color: #3498db; /* Azul */
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-buttons a img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-buttons a img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.3);
 }

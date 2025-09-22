@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 const textos = [
-  "Full-Stack Developer com visão de produto",
-  "Domino o front, resolvo o back",
-  "Estudioso hardcore de IA e dados",
-  "faço projetos desde os 16 — e não parei mais",
-  "Tecnologia é meu idioma nativo",
-  "Transformo ideias em soluções digitais",
-  "Apaixonado por criar, otimizar e escalar"
+  "Expert em desenvolvimento front-end e back-end integrado",
+  "Entusiasta de Inteligência Artificial e análise de dados",
+  "Experiência sólida em projetos de software desde a adolescência",
+  "Tecnologia como ferramenta para resolver problemas complexos",
+  "Transformo ideias em produtos digitais eficientes",
+  "Comprometido com inovação, performance e resultados"
 ];
+
 let i = 0;
 setInterval(() => {
   document.getElementById("text-dinamico").textContent = textos[i];

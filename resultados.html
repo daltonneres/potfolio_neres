@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback's - Dalton Neres</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="resultados.html">Feedback's</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <div class="acessibilidade-container">
+    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
+    <div class="acessibilidade-menu" id="acessibilidadeMenu">
+      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
+      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
+      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
+    </div>
+  </div>
+
+  <section>
+  <h2 style="text-align: center; color: #3498db;">O QUE DIZEM SOBRE NÓS</h2>
+  <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #ccc;">
+    A confiança de cada cliente é a nossa maior conquista. Aqui você encontra os feedback’s e resultados que refletem
+    nosso compromisso em entregar soluções digitais de qualidade, com dedicação e profissionalismo. 
+    Cada opinião compartilhada é combustível para continuarmos inovando e superando expectativas.
+  </p>
+</section>
+
+<!-- Depoimento com VÍDEO -->
+<section class="depoimento">
+  <div class="depoimento-midia">
+    <video controls>
+      <source src="resultado.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos.
+    </video>
+  </div>
+  <div class="depoimento-texto">
+    <h4 class="depoimento-nome">- Maria Oliveira</h4>
+    <p class="depoimento-agradecimento">
+      🌟 Sua confiança é o que nos motiva a sempre entregar o melhor!
+    </p>
+  </div>
+</section>
+
+<!-- Depoimento apenas com TEXTO -->
+<section class="depoimento">
+  <div class="depoimento-texto">
+    <p class="depoimento-msg">
+      "Atendimento incrível, atenção aos detalhes e resultado impecável. Recomendo de olhos fechados!"
+    </p>
+    <h4 class="depoimento-nome">- João Silva</h4>
+    <p class="depoimento-agradecimento">
+      💙 Cada palavra nos fortalece e inspira a continuar crescendo com você!
+    </p>
+  </div>
+</section>
+
+<!-- Depoimento com IMAGEM (print de conversa) -->
+<section class="depoimento">
+  <div class="depoimento-midia">
+    <img src="imagens/print-cliente.jpg" alt="Depoimento em print de conversa">
+  </div>
+  <div class="depoimento-texto">
+    <h4 class="depoimento-nome">- Ana Souza</h4>
+    <p class="depoimento-agradecimento">
+      🙌 Cada parceria é uma conquista que celebramos juntos!
+    </p>
+  </div>
+</section>
+
+</body>
+</html>

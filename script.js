@@ -28,3 +28,9 @@ setInterval(() => {
   i = (i + 1) % textos.length;
 }, 2000);
 
+// Ativar fade-in ao carregar
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".fade-in").forEach(el => {
+    el.classList.add("visible");
+  });
+});

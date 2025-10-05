@@ -18,121 +18,40 @@
       <li><a href="contato.html">Contato</a></li>
     </ul>
   </nav>
-
-  <div class="acessibilidade-container">
-    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
-    <div class="acessibilidade-menu" id="acessibilidadeMenu">
-      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
-      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
-      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
-    </div>
+  <div class="acessibilidade-container"> <button class="acessibilidade-toggle"
+      onclick="toggleAcessibilidade()">Acessibilidade</button>
+    <div class="acessibilidade-menu" id="acessibilidadeMenu"> <button onclick="ajustarFonte('aumentar')"
+        class="font-btn">A+</button> <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button> <button
+        onclick="toggleContraste()" class="font-btn">Alto Contraste</button> </div>
   </div>
-
-<section class="fade-in">
-  <h2>Tem um projeto? Bora tirar do papel.</h2>
-  <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
-
-  <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST" id="contatoForm">
-    <input type="text" name="nome" placeholder="Seu nome" required>
-    <input type="email" name="email" placeholder="Seu email" required>
-    <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
-
-    <!-- Configurações -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://daltonneres.github.io/portfolio_neres/obrigado.html">
-
-    <button type="submit">Enviar</button>
-  </form>
-
-  <script>
-    // Captura o envio e redireciona manualmente após o FormSubmit responder
-    document.getElementById("contatoForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // evita redirecionamento imediato
-
-      const form = event.target;
-      const data = new FormData(form);
-
-      fetch(form.action, {
-        method: "POST",
-        body: data,
-      }).then(() => {
-        // Redireciona direto para o seu obrigado.html dentro do repositório
-        window.location.href = "/portfolio_neres/obrigado.html";
-      }).catch(() => {
-        alert("Houve um erro ao enviar o formulário. Tente novamente.");
-      });
-    });
-  </script>
-</section>
-
+  <section class="fade-in">
+    <h2>Tem um projeto? Bora tirar do papel.</h2>
+    <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
+    <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST" id="contatoForm"> <input type="text"
+        name="nome" placeholder="Seu nome" required> <input type="email" name="email" placeholder="Seu email" required>
+      <textarea name="mensagem" placeholder="Sua mensagem" required></textarea> <!-- Configurações --> <input
+        type="hidden" name="_captcha" value="false"> <input type="hidden" name="_next"
+        value="https://daltonneres.github.io/portfolio_neres/obrigado.html"> <button type="submit">Enviar</button>
+    </form>
+    <script> // Captura o envio e redireciona manualmente após o FormSubmit responder document.getElementById("contatoForm").addEventListener("submit", function (event) { event.preventDefault(); // evita redirecionamento imediato const form = event.target; const data = new FormData(form); fetch(form.action, { method: "POST", body: data, }).then(() => { // Redireciona direto para o seu obrigado.html dentro do repositório window.location.href = "/portfolio_neres/obrigado.html"; }).catch(() => { alert("Houve um erro ao enviar o formulário. Tente novamente."); }); }); </script>
+  </section>
   <section class="fade-in contatos">
     <h2>🌐 Redes de Contato</h2>
-    <div class="social-buttons">
-      <a href="mailto:dev.neresdalton@gmail.com" target="_blank">
-        <img src="gmail.png" alt="Email" title="Email">
-      </a>
-      <a href="https://wa.me/5546920007229" target="_blank">
-        <img src="whatsapp.png" alt="WhatsApp" title="WhatsApp">
-      </a>
-      <a href="https://instagram.com/dalton_neres" target="_blank">
-        <img src="instagram.png" alt="Instagram" title="Instagram">
-      </a>
-      <a href="https://github.com/daltonneres" target="_blank">
-        <img src="github.png" alt="GitHub" title="GitHub">
-      </a>
-    </div>
+    <div class="social-buttons"> <a href="mailto:dev.neresdalton@gmail.com" target="_blank"> <img src="gmail.png"
+          alt="Email" title="Email"> </a> <a href="https://wa.me/5546920007229" target="_blank"> <img src="whatsapp.png"
+          alt="WhatsApp" title="WhatsApp"> </a> <a href="https://instagram.com/dalton_neres" target="_blank"> <img
+          src="instagram.png" alt="Instagram" title="Instagram"> </a> <a href="https://github.com/daltonneres"
+        target="_blank"> <img src="github.png" alt="GitHub" title="GitHub"> </a> </div>
   </section>
-
-  <div class="btn-container">
-    <a href="index.html" class="btn">Voltar para o Início</a>
-  </div>
-
-  <script>
-    let tamanhoFonteAtual = 100;
-    let contrasteAtivo = false;
-
-    function ajustarFonte(acao) {
-      if (acao === 'aumentar') {
-        tamanhoFonteAtual += 10;
-      } else if (acao === 'diminuir') {
-        tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
-      }
-      document.body.style.fontSize = `${tamanhoFonteAtual}%`;
-    }
-
-    function toggleContraste() {
-      contrasteAtivo = !contrasteAtivo;
-      document.body.classList.toggle('alto-contraste', contrasteAtivo);
-    }
-
-    function toggleAcessibilidade() {
-      const menu = document.getElementById("acessibilidadeMenu");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-    }
-  </script>
-
-  <script>
-    let contrasteativo = false;
-
-    function toggleContraste() {
-      contrasteAtivo = !contrasteAtivo;
-      document.body.classList.toggle('alto-contraste', contrasteAtivo);
-    }
-  </script>
-
+  <div class="btn-container"> <a href="index.html" class="btn">Voltar para o Início</a> </div>
+  <script> let tamanhoFonteAtual = 100; let contrasteAtivo = false; function ajustarFonte(acao) { if (acao === 'aumentar') { tamanhoFonteAtual += 10; } else if (acao === 'diminuir') { tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10); } document.body.style.fontSize = ${ tamanhoFonteAtual }%; } function toggleContraste() { contrasteAtivo = !contrasteAtivo; document.body.classList.toggle('alto-contraste', contrasteAtivo); } function toggleAcessibilidade() { const menu = document.getElementById("acessibilidadeMenu"); menu.style.display = (menu.style.display === "flex") ? "none" : "flex"; } </script>
+  <script> let contrasteativo = false; function toggleContraste() { contrasteAtivo = !contrasteAtivo; document.body.classList.toggle('alto-contraste', contrasteAtivo); } </script>
   <!-- Rodapé -->
   <footer class="footer">
-    <p class="rodape-final">
-      Desenvolvido por
-      <a href="https://github.com/daltonneres" target="_blank"
-        style="color: rgb(255, 255, 255); text-decoration: none;">
-        Dalton Neres - Full Stack Developer
-      </a>
-    </p>
+    <p class="rodape-final"> Desenvolvido por <a href="https://github.com/daltonneres" target="_blank"
+        style="color: rgb(255, 255, 255); text-decoration: none;"> Dalton Neres - Full Stack Developer </a> </p>
   </footer>
-
   <script src="script.js"></script>
-
 </body>
 
 </html>

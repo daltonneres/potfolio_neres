@@ -32,29 +32,39 @@
   <h2>Tem um projeto? Bora tirar do papel.</h2>
   <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
 
-  <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST" onsubmit="redirectAfterSubmit(event)">
+  <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST" id="contatoForm">
     <input type="text" name="nome" placeholder="Seu nome" required>
     <input type="email" name="email" placeholder="Seu email" required>
     <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
 
-    <!-- Proteções extras -->
+    <!-- Configurações -->
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://daltonneres.github.io/portfolio_neres/obrigado.html">
 
     <button type="submit">Enviar</button>
   </form>
 
   <script>
-    function redirectAfterSubmit(event) {
-      // deixa o form enviar normalmente
-      event.target.submit();
+    // Captura o envio e redireciona manualmente após o FormSubmit responder
+    document.getElementById("contatoForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // evita redirecionamento imediato
 
-      // aguarda 1 segundo e redireciona
-      setTimeout(() => {
+      const form = event.target;
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+      }).then(() => {
+        // Redireciona direto para o seu obrigado.html local
         window.location.href = "obrigado.html";
-      }, 1000);
-    }
+      }).catch(() => {
+        alert("Houve um erro ao enviar o formulário. Tente novamente.");
+      });
+    });
   </script>
 </section>
+
 
   <section class="fade-in contatos">
     <h2>🌐 Redes de Contato</h2>

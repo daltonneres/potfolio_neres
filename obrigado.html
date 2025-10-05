@@ -7,6 +7,7 @@
 </head>
 <body>
 
+  <!-- Botão de acessibilidade -->
   <div class="acessibilidade-container">
     <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
     <div class="acessibilidade-menu" id="acessibilidadeMenu">
@@ -16,13 +17,17 @@
     </div>
   </div>
 
+  <!-- Conteúdo principal -->
   <section class="fade-in" style="text-align:center; padding: 4rem;">
-<h2>Tudo certo por aqui! 🎯</h2>
-<p>Sua mensagem foi enviada. Em breve, eu volto com uma resposta — bora construir algo incrível!</p>
+    <h2 style="color:#3498db;">Tudo certo por aqui! 🎯</h2>
+    <p style="color:#ccc; max-width:700px; margin:0 auto 30px;">
+      Sua mensagem foi enviada com sucesso! Em breve, entro em contato para conversarmos sobre o seu projeto 🚀
+    </p>
     <a href="index.html" class="btn">Voltar para o Início</a>
   </section>
 
-<script>
+  <!-- Scripts de acessibilidade -->
+  <script>
     let tamanhoFonteAtual = 100;
     let contrasteAtivo = false;
 
@@ -46,26 +51,17 @@
     }
   </script>
 
-  <script>
-    let contrasteativo = false;
-
-    function toggleContraste() {
-      contrasteAtivo = !contrasteAtivo;
-      document.body.classList.toggle('alto-contraste', contrasteAtivo);
-    }
-  </script>
-
   <!-- Rodapé -->
-<footer class="footer">
-  <p class="rodape-final">
-    Desenvolvido por 
-    <a href="https://github.com/daltonneres" target="_blank" style="color: rgb(255, 255, 255); text-decoration: none;">
-      Dalton Neres - Full Stack Developer
-    </a>
-  </p>
-</footer>
+  <footer class="footer">
+    <p class="rodape-final">
+      Desenvolvido por 
+      <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
+        Dalton Neres - Full Stack Developer
+      </a>
+    </p>
+  </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>

@@ -28,20 +28,33 @@
     </div>
   </div>
 
-  <section class="fade-in">
-    <h2>Tem um projeto? Bora tirar do papel.</h2>
-    <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
-    <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu email" required>
-      <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+<section class="fade-in">
+  <h2>Tem um projeto? Bora tirar do papel.</h2>
+  <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
 
-      <!-- Proteções extras -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="/portfolio_neres/obrigado.html">
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+  <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST" onsubmit="redirectAfterSubmit(event)">
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    <input type="email" name="email" placeholder="Seu email" required>
+    <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+
+    <!-- Proteções extras -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    function redirectAfterSubmit(event) {
+      // deixa o form enviar normalmente
+      event.target.submit();
+
+      // aguarda 1 segundo e redireciona
+      setTimeout(() => {
+        window.location.href = "obrigado.html";
+      }, 1000);
+    }
+  </script>
+</section>
 
   <section class="fade-in contatos">
     <h2>🌐 Redes de Contato</h2>

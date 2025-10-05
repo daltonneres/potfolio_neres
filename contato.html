@@ -39,12 +39,31 @@
 
     <!-- Configurações -->
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="obrigado.html">
+    <input type="hidden" name="_next" value="https://daltonneres.github.io/portfolio_neres/obrigado.html">
 
     <button type="submit">Enviar</button>
   </form>
+
+  <script>
+    // Captura o envio e redireciona manualmente após o FormSubmit responder
+    document.getElementById("contatoForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // evita redirecionamento imediato
+
+      const form = event.target;
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+      }).then(() => {
+        // Redireciona direto para o seu obrigado.html dentro do repositório
+        window.location.href = "/portfolio_neres/obrigado.html";
+      }).catch(() => {
+        alert("Houve um erro ao enviar o formulário. Tente novamente.");
+      });
+    });
+  </script>
 </section>
-[]
 
   <section class="fade-in contatos">
     <h2>🌐 Redes de Contato</h2>

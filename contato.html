@@ -20,7 +20,7 @@
     </ul>
   </nav>
 
-  <!-- Menu de Acessibilidade -->
+  <!-- Acessibilidade -->
   <div class="acessibilidade-container">
     <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
     <div class="acessibilidade-menu" id="acessibilidadeMenu" style="display: none;">
@@ -30,17 +30,17 @@
     </div>
   </div>
 
-  <!-- Formulário -->
+  <!-- Seção principal -->
   <section class="fade-in">
     <h2>Tem um projeto? Bora tirar do papel.</h2>
     <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
 
-    <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST" id="contatoForm">
+    <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST">
       <input type="text" name="nome" placeholder="Seu nome" required>
       <input type="email" name="email" placeholder="Seu email" required>
       <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
 
-      <!-- Configurações FormSubmit -->
+      <!-- Configurações -->
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://daltonneres.github.io/portfolio_neres/obrigado.html">
 
@@ -48,22 +48,15 @@
     </form>
   </section>
 
-  <!-- Redes de Contato -->
+  <!-- Contatos -->
   <section class="fade-in contatos">
     <h2>🌐 Redes de Contato</h2>
     <div class="social-buttons">
-      <a href="mailto:dev.neresdalton@gmail.com" target="_blank">
-        <img src="gmail.png" alt="Email" title="Email">
-      </a>
-      <a href="https://wa.me/5546999711937" target="_blank">
-        <img src="whatsapp.png" alt="WhatsApp" title="WhatsApp">
-      </a>
-      <a href="https://instagram.com/dalton_neres" target="_blank">
-        <img src="instagram.png" alt="Instagram" title="Instagram">
-      </a>
-      <a href="https://github.com/daltonneres" target="_blank">
-        <img src="github.png" alt="GitHub" title="GitHub">
-      </a>
+      <a href="mailto:dev.neresdalton@gmail.com" target="_blank"><img src="gmail.png" alt="Email" title="Email"></a>
+      <a href="https://wa.me/5546999711937" target="_blank"><img src="whatsapp.png" alt="WhatsApp" title="WhatsApp"></a>
+      <a href="https://instagram.com/dalton_neres" target="_blank"><img src="instagram.png" alt="Instagram"
+          title="Instagram"></a>
+      <a href="https://github.com/daltonneres" target="_blank"><img src="github.png" alt="GitHub" title="GitHub"></a>
     </div>
   </section>
 
@@ -73,26 +66,6 @@
 
   <!-- Scripts -->
   <script>
-    // Redirecionamento do Formulário
-    document.getElementById("contatoForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // Evita redirecionamento automático
-
-      const form = event.target;
-      const data = new FormData(form);
-
-      fetch(form.action, {
-        method: "POST",
-        body: data
-      })
-        .then(() => {
-          // Redireciona após o envio bem-sucedido
-          window.location.href = "https://daltonneres.github.io/portfolio_neres/obrigado.html";
-        })
-        .catch(() => {
-          alert("Houve um erro ao enviar o formulário. Tente novamente.");
-        });
-    });
-
     // --- Acessibilidade ---
     let tamanhoFonteAtual = 100;
     let contrasteAtivo = false;
@@ -113,9 +86,19 @@
 
     function toggleAcessibilidade() {
       const menu = document.getElementById("acessibilidadeMenu");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+      menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "flex" : "none";
     }
   </script>
+
+  <script>
+    // Ativa a animação de entrada suave
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        el.classList.add("visible");
+      });
+    });
+  </script>
+
 
   <!-- Rodapé -->
   <footer class="footer">

@@ -404,3 +404,7 @@ body {
   font-weight: 600;
 }
 
+.fade-in {
+  opacity: 1 !important;
+  transform: none !important;
+}

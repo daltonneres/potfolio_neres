@@ -28,7 +28,7 @@ O objetivo deste projeto é apresentar minha trajetória, projetos realizados e 
 
 ## 📬 Contato
 - **Email:** [dev.neresdalton@gmail.com](mailto:dev.neresdalton@gmail.com)  
-- **WhatsApp:** [Clique aqui](https://wa.me/5546920007229)  
+- **WhatsApp:** [Clique aqui](https://wa.me/5546999711937)  
 - **GitHub:** [daltonneres](https://github.com/daltonneres)  
 - **LinkedIn:** [Dalton José Neres](https://www.linkedin.com/in/dalton-jos%C3%A9-neres/)  
 

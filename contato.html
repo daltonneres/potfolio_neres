@@ -35,17 +35,46 @@
     <h2>Tem um projeto? Bora tirar do papel.</h2>
     <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
 
-    <form action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST">
+    <form id="contatoForm" action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST">
       <input type="text" name="nome" placeholder="Seu nome" required>
       <input type="email" name="email" placeholder="Seu email" required>
       <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
 
       <!-- Configurações -->
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://daltonneres.github.io/portfolio_neres/obrigado.html">
 
       <button type="submit">Enviar</button>
     </form>
+
+    <!-- Imagem de agradecimento (oculta por padrão) -->
+    <div id="agradecimento" style="display: none; text-align: center; margin-top: 2rem;">
+      <img src="agradecimento.png" alt="Obrigado pelo contato!" style="max-width: 300px; border-radius: 10px;">
+      <p style="color: #ccc; margin-top: 1rem;">Mensagem enviada com sucesso! 🎉</p>
+    </div>
+
+    <script>
+      const form = document.getElementById("contatoForm");
+      const mensagem = document.getElementById("agradecimento");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const data = new FormData(form);
+
+        fetch(form.action, {
+          method: "POST",
+          body: data,
+        })
+          .then(() => {
+            form.style.display = "none"; // Esconde o formulário
+            mensagem.style.display = "block"; // Mostra a imagem de agradecimento
+          })
+          .catch(() => {
+            alert("Houve um erro ao enviar o formulário. Tente novamente.");
+          });
+      });
+    </script>
+
   </section>
 
   <!-- Contatos -->

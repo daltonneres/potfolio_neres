@@ -3,6 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Desenvolvedor Full Stack com foco em acessibilidade, automação e soluções digitais modernas. Conheça Dalton Neres.">
+  <meta name="keywords" content="Dalton Neres, Desenvolvedor, Full Stack, Acessibilidade, Programação, Tecnologia, Web, Software, Site, App">
+  <meta name="author" content="Dalton Neres">
+  <meta name="robots" content="index, follow">
   <title>Feedback's - Dalton Neres</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
@@ -130,6 +135,32 @@
       </a>
     </p>
   </footer>
+
+    <!-- Scripts -->
+  <script>
+    let tamanhoFonteAtual = 100;
+    let contrasteAtivo = false;
+
+    function ajustarFonte(acao) {
+      if (acao === 'aumentar') {
+        tamanhoFonteAtual += 10;
+      } else if (acao === 'diminuir') {
+        tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
+      }
+      document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+    }
+
+    function toggleContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      document.body.classList.toggle('alto-contraste', contrasteAtivo);
+    }
+
+    function toggleAcessibilidade() {
+      const menu = document.getElementById("acessibilidadeMenu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+  
 </body>
 
 </html>

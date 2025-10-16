@@ -1,32 +1,38 @@
-
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.fade-in');
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  sections.forEach(section => {
-    appearOnScroll.observe(section);
-  });
-});
-const textos = [
-  "Expert em desenvolvimento front-end e back-end integrado",
-  "Entusiasta de Inteligência Artificial e análise de dados",
-  "Experiência sólida em projetos de software desde a adolescência",
-  "Tecnologia como ferramenta para resolver problemas complexos",
-  "Transformo ideias em produtos digitais eficientes",
-  "Comprometido com inovação, performance e resultados"
+const frases = [
+  "Desenvolvedor Full-Stack focado em soluções escaláveis",
+  "Criando experiências digitais modernas e acessíveis",
+  "Transformando ideias em soluções reais"
 ];
 
 let i = 0;
-setInterval(() => {
-  document.getElementById("text-dinamico").textContent = textos[i];
-  i = (i + 1) % textos.length;
-}, 2000);
+let j = 0;
+let txt = '';
+let fraseAtual = 0;
+
+function digitar() {
+  if (j < frases[fraseAtual].length) {
+    txt += frases[fraseAtual][j];
+    document.getElementById('text-dinamico').innerHTML = txt;
+    j++;
+    setTimeout(digitar, 70);
+  } else {
+    setTimeout(apagar, 2000);
+  }
+}
+
+function apagar() {
+  if (j > 0) {
+    txt = txt.slice(0, -1);
+    document.getElementById('text-dinamico').innerHTML = txt;
+    j--;
+    setTimeout(apagar, 50);
+  } else {
+    fraseAtual = (fraseAtual + 1) % frases.length;
+    setTimeout(digitar, 500);
+  }
+}
+
+digitar();
 
 // Ativar fade-in ao carregar
 document.addEventListener("DOMContentLoaded", () => {

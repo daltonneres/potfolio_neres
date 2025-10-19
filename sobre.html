@@ -20,6 +20,7 @@
       <li><a href="projetos.html">Projetos</a></li>
       <li><a href="servicos.html">Serviços</a></li>
       <li><a href="resultados.html">Feedback's</a></li>
+      <li><a href="bot.html">ChatBOT - DalBot</a></li>
       <li><a href="contato.html">Contato</a></li>
     </ul>
   </nav>
@@ -134,16 +135,26 @@
     }
   </script>
 
-  <!-- Rodapé -->
-  <footer class="footer">
-    <p class="rodape-final">
-      Desenvolvido por
-      <a href="https://github.com/daltonneres" target="_blank"
-        style="color: rgb(255, 255, 255); text-decoration: none;">
-        Dalton Neres - Full Stack Developer
-      </a>
-    </p>
-  </footer>
+<!-- Rodapé -->
+<footer class="footer">
+  <p class="rodape-final">
+    Desenvolvido por
+    <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
+      Dalton Neres - Full Stack Developer
+    </a>
+    <br>
+    <span id="ultima-atualizacao"></span>
+  </p>
+</footer>
+
+<script>
+  const data = new Date();
+  const dia = String(data.getDate()).padStart(2, '0');
+  const mes = data.toLocaleString('pt-BR', { month: 'long' });
+  const ano = data.getFullYear();
+  document.getElementById("ultima-atualizacao").textContent =
+    `Última atualização: ${dia} de ${mes} de ${ano}`;
+</script>
 
   <script src="script.js"></script>
 

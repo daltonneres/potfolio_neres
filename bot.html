@@ -3,57 +3,172 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Desenvolvedor Full Stack com foco em acessibilidade, automação e soluções digitais modernas. Conheça Dalton Neres.">
-    <meta name="keywords" content="Dalton Neres, Desenvolvedor, Full Stack, Acessibilidade, Programação, Tecnologia, Web, Software, Site, App">
+    <meta name="description" content="Conheça o DalBot — o assistente virtual inteligente desenvolvido por Dalton Neres. Tecnologia, automação e atendimento digital com um toque humano.">
+    <meta name="keywords" content="DalBot, ChatBot, Inteligência Artificial, Assistente Virtual, Dalton Neres, Automação, Tecnologia, Web, Atendimento Digital, IA">
     <meta name="author" content="Dalton Neres">
     <meta name="robots" content="index, follow">
-    <title>ChatBOT | Dalton Neres</title>
+    <title>DalBot | Assistente Virtual Inteligente</title>
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
   </head>
 
-<body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="projetos.html">Projetos</a></li>
-      <li><a href="servicos.html">Serviços</a></li>
-      <li><a href="resultados.html">Feedback's</a></li>
-      <li><a href="bot.html">ChatBOT - DalBot</a></li>
-      <li><a href="contato.html">Contato</a></li>
-    </ul>
-  </nav>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+        <li><a href="resultados.html">Feedback's</a></li>
+        <li><a href="bot.html" class="active">ChatBOT - DalBot</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
 
-  <div class="acessibilidade-container">
-    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
-    <div class="acessibilidade-menu" id="acessibilidadeMenu">
-      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
-      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
-      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
+    <div class="acessibilidade-container">
+      <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
+      <div class="acessibilidade-menu" id="acessibilidadeMenu">
+        <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
+        <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
+        <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
+      </div>
     </div>
-  </div>
 
-<!-- Rodapé -->
-<footer class="footer">
-  <p class="rodape-final">
-    Desenvolvido por
-    <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
-      Dalton Neres - Full Stack Developer
-    </a>
-    <br>
-    <span id="ultima-atualizacao"></span>
+    <!-- Conteúdo principal -->
+    <main class="conteudo-bot">
+      <section class="intro fade-in">
+        <h1>🤖 Conheça o <span class="highlight">DalBot</span> — Seu Assistente Virtual Inteligente</h1>
+        <img src="imgs/dalbot.jpg" alt="DalBot - Assistente Virtual" title="DalBot - Assistente Virtual" class="profile-pic">
+        <p>
+          O <strong>DalBot</strong> é mais que um simples chatbot — é um <strong>assistente virtual inteligente</strong> criado por
+          <strong>Dalton Neres</strong> para oferecer uma experiência digital moderna, ágil e humanizada.  
+          Sempre disponível, o DalBot está pronto para conversar, apresentar serviços, tirar dúvidas e guiar o visitante pelo site de forma intuitiva e envolvente.
+        </p>
+        <a href="projetos.html"
+          style="background: #3498db; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none;">
+          Consulte nossos projetos
+        </a>
+      </section>
+
+      <section class="skills fade-in">
+        <h2>⚡ Habilidades e Funcionalidades</h2>
+        <div class="skills-container">
+          <div class="skill-card">
+            <h3>💬 Conversação Natural</h3>
+            <p>Interage de maneira fluida, compreendendo o contexto e adaptando as respostas conforme o usuário.</p>
+          </div>
+          <div class="skill-card">
+            <h3>🧭 Navegação Guiada</h3>
+            <p>Ajuda você a encontrar rapidamente páginas como <strong>Serviços</strong>, <strong>Projetos</strong> e <strong>Feedbacks</strong>.</p>
+          </div>
+          <div class="skill-card">
+            <h3>📈 Suporte Inteligente</h3>
+            <p>Fornece informações sobre produtos, pacotes e planos personalizados, além de tirar dúvidas em tempo real.</p>
+          </div>
+          <div class="skill-card">
+            <h3>🌐 Integração Total</h3>
+            <p>Conectado ao <strong>WhatsApp</strong> e formulários, o DalBot garante comunicação direta com o desenvolvedor.</p>
+          </div>
+          <div class="skill-card">
+            <h3>🔔 Notificações Automatizadas</h3>
+            <p>Envia alertas sobre novas atualizações, projetos em destaque e promoções de serviços digitais.</p>
+          </div>
+          <div class="skill-card">
+            <h3>🧠 Aprendizado Contínuo</h3>
+            <p>O DalBot está em constante evolução — quanto mais interage, mais inteligente e útil se torna.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="vantagens fade-in">
+        <h2>🚀 Por que Escolher o DalBot?</h2>
+        <ul>
+          <li>💡 Atendimento disponível <strong>24h por dia</strong>, sem tempo de espera.</li>
+          <li>⚙️ Automatiza tarefas e respostas frequentes, poupando tempo e esforço.</li>
+          <li>📊 Melhora a experiência do visitante e aumenta o engajamento no site.</li>
+          <li>🧩 Pode ser integrado com sistemas externos e plataformas digitais.</li>
+          <li>🔒 Seguro, rápido e compatível com todos os dispositivos.</li>
+        </ul>
+      </section>
+
+      <section class="servicos fade-in">
+        <h2>🛠️ Como o DalBot Pode Ajudar Você</h2>
+        <p>
+          O DalBot foi desenvolvido para transformar a forma como empresas e criadores interagem com seu público.
+          Ele automatiza processos, gera leads e melhora o relacionamento digital de forma inteligente e personalizada.
+        </p>
+        <a href="servicos.html"
+          style="background: #3498db; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none;">
+          Veja nossos serviços
+        </a>
+      </section>
+
+      <section class="dalbot-empresa fade-in">
+  <h2>🚀 Leve o DalBot para Seu Site ou Projeto</h2>
+  <p>
+    Você pode utilizar o <strong>DalBot</strong> diretamente em seu site ou projeto, aproveitando toda a inteligência
+    e interatividade que ele oferece no nosso portfólio.  
+    <br><br>
+    E se você quiser um assistente totalmente <strong>personalizável</strong>, adaptado à identidade e necessidades da sua empresa,
+    o DalBot pode ser configurado para automatizar atendimento, gerar leads e otimizar processos, ajudando no desenvolvimento
+    e melhor funcionamento do seu negócio.
   </p>
-</footer>
+  <a href="contato.html"
+     style="background: #3498db; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none;">
+    Solicitar seu DalBot personalizado
+  </a>
+</section>
 
-<script>
-  const data = new Date();
-  const dia = String(data.getDate()).padStart(2, '0');
-  const mes = data.toLocaleString('pt-BR', { month: 'long' });
-  const ano = data.getFullYear();
-  document.getElementById("ultima-atualizacao").textContent =
-    `Última atualização: ${dia} de ${mes} de ${ano}`;
-</script>
+      <section class="feedbacks fade-in">
+        <h2>💬 O que Dizem Sobre as Soluções Digitais</h2>
+        <p>
+          Clientes e parceiros destacam o impacto positivo do DalBot e das soluções desenvolvidas por Dalton Neres,
+          ressaltando a eficiência, o suporte e a inovação presente em cada projeto.
+        </p>
+        <a href="resultados.html"
+          style="background: #3498db; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none;">
+          Ver feedbacks
+        </a>
+      </section>
 
+<section class="contato-bot fade-in">
+  <h2>📞 Fale com o DalBot ou com o Desenvolvedor</h2>
+  <p>
+    O <strong>DalBot</strong> é o assistente virtual oficial deste portfólio — desenvolvido por 
+    <strong>Dalton Neres</strong> para oferecer uma experiência interativa, moderna e acessível.
+    <br><br>
+    Além disso, ele é <strong>totalmente personalizável</strong> para empresas, marcas e profissionais que desejam ter
+    seu próprio assistente virtual em seus sites ou sistemas.
+    <br><br>
+    Se você deseja implementar um chatbot exclusivo, com a identidade da sua empresa e integrado aos seus canais de atendimento,
+    entre em contato e descubra como o DalBot pode ser adaptado para o seu negócio.
+  </p>
+  <a href="contato.html"
+    style="background: #3498db; color: #fff; padding: 10px 15px; border-radius: 8px; text-decoration: none;">
+    Falar com o desenvolvedor
+  </a>
+</section>
+    </main>
 
+    <!-- Rodapé -->
+    <footer class="footer">
+      <p class="rodape-final">
+        Desenvolvido por
+        <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
+          Dalton Neres - Full Stack Developer
+        </a>
+        <br>
+        <span id="ultima-atualizacao"></span>
+      </p>
+    </footer>
+
+    <script>
+      const data = new Date();
+      const dia = String(data.getDate()).padStart(2, '0');
+      const mes = data.toLocaleString('pt-BR', { month: 'long' });
+      const ano = data.getFullYear();
+      document.getElementById("ultima-atualizacao").textContent =
+        `Última atualização: ${dia} de ${mes} de ${ano}`;
+    </script>
+  </body>
 </html>

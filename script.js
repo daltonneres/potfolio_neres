@@ -40,3 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
     el.classList.add("visible");
   });
 });
+
+// === POP-UP PROMOCIONAL ===
+window.addEventListener("load", () => {
+  document.getElementById("popupPromo").classList.add("ativo");
+});
+
+function fecharPopup() {
+  document.getElementById("popupPromo").classList.remove("ativo");
+}

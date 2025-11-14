@@ -20,7 +20,6 @@
       <li><a href="projetos.html">Projetos</a></li>
       <li><a href="servicos.html">Serviços</a></li>
       <li><a href="resultados.html">Feedback's</a></li>
-      <li><a href="bot.html">ChatBOT - DalBot</a></li>
       <li><a href="contato.html">Contato</a></li>
     </ul>
   </nav>
@@ -78,18 +77,113 @@
   </div>
 </section>
 
-  <section class="dalbot-invite fade-in" style="text-align: center; margin-top: 60px;">
-  <h2>🤖 Conheça o DalBot — Seu Assistente Virtual</h2>
-  <p style="max-width: 800px; margin: 15px auto;">
-    O <strong>DalBot</strong> é um assistente virtual inteligente desenvolvido por <strong>Dalton Neres</strong> para 
-    otimizar a navegação, responder perguntas e tornar sua experiência digital muito mais prática e interativa.
-    <br><br>
-    Teste o DalBot e descubra como a tecnologia pode transformar sua jornada digital!
-  </p>
-  <a href="bot.html"
-    style="background: #3498db; color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 15px;">
-    Conhecer o DalBot
-  </a>
+<section class="resultados-dev fade-in">
+  <h2>🚀 Resultados em Números</h2>
+
+  <div class="resultados-grid">
+    <div class="resultado-card">
+      <h3>+35</h3>
+      <p>Projetos Entregues</p>
+    </div>
+
+    <div class="resultado-card">
+      <h3>+18</h3>
+      <p>Clientes Atendidos</p>
+    </div>
+
+    <div class="resultado-card">
+      <h3>+120k</h3>
+      <p>Visualizações Totais</p>
+    </div>
+
+    <div class="resultado-card">
+      <h3>+5</h3>
+      <p>Sistemas Proprietários</p>
+    </div>
+  </div>
+</section>
+
+<script>
+function animarContadores() {
+  const elementos = document.querySelectorAll(".numero");
+
+  elementos.forEach(el => {
+    const max = +el.getAttribute("data-valor");
+    let valorAtual = 0;
+    const incremento = Math.ceil(max / 100);
+
+    const atualizar = setInterval(() => {
+      valorAtual += incremento;
+      if (valorAtual >= max) {
+        el.textContent = max.toLocaleString('pt-BR');
+        clearInterval(atualizar);
+      } else {
+        el.textContent = valorAtual.toLocaleString('pt-BR');
+      }
+    }, 20);
+  });
+}
+
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    animarContadores();
+    observer.disconnect();
+  }
+});
+observer.observe(document.querySelector(".resultados"));
+</script>
+
+<section class="como-trabalho-dev fade-in">
+  <h2>🛠 Como Eu Trabalho</h2>
+
+  <div class="trabalho-grid">
+
+    <div class="trabalho-card">
+      <h3>📌 1. Briefing</h3>
+      <p>Entendemos sua ideia, objetivos e o propósito do projeto.</p>
+    </div>
+
+    <div class="trabalho-card">
+      <h3>🧭 2. Planejamento</h3>
+      <p>Estrutura, páginas, funcionalidades e mapa completo do projeto.</p>
+    </div>
+
+    <div class="trabalho-card">
+      <h3>🎨 3. Design</h3>
+      <p>Criação visual moderna e responsiva de toda a interface.</p>
+    </div>
+
+    <div class="trabalho-card">
+      <h3>💻 4. Desenvolvimento</h3>
+      <p>Frontend, backend, banco de dados e integrações completas.</p>
+    </div>
+
+    <div class="trabalho-card">
+      <h3>🧪 5. Testes</h3>
+      <p>Garantia de performance, acessibilidade e compatibilidade total.</p>
+    </div>
+
+    <div class="trabalho-card">
+      <h3>🚀 6. Publicação</h3>
+      <p>Hospedagem, SEO, otimizações e entrega final.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="stack-dev fade-in">
+  <h2>💻 Minha Stack de Desenvolvimento</h2>
+
+  <div class="stack-card-dev">
+    <p>Stack moderna e completa para desenvolver qualquer tipo de solução digital:</p>
+
+    <ul>
+      <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, TypeScript, React</li>
+      <li><strong>Backend:</strong> Node.js, Express, Python</li>
+      <li><strong>Banco de Dados:</strong> MySQL, MongoDB</li>
+      <li><strong>Outros:</strong> APIs, automações, UX/UI, integrações com WhatsApp</li>
+    </ul>
+  </div>
 </section>
 
 <section class="skills fade-in">

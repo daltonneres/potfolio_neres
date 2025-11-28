@@ -646,3 +646,17 @@ body {
 #text-dinamico {
   transition: opacity 0.6s ease;
 }
+
+.sobre-container {
+  max-width: 850px;     /* largura ideal para leitura */
+  margin: 0 auto;       /* centraliza */
+  padding: 0 20px;      /* espaço lateral para mobile */
+  text-align: center;   /* centraliza título e imagem */
+}
+
+.sobre-container p {
+  text-align: justify;       /* deixa o texto bonito */
+  line-height: 1.7;          /* espaçamento agradável */
+  margin-bottom: 18px;       /* espaço entre parágrafos */
+  font-size: 1.1rem;         /* tamanho ótimo para desktop */
+}

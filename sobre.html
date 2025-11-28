@@ -8,7 +8,7 @@
     <meta name="author" content="Dalton Neres">
     <meta name="robots" content="index, follow">
     <title>Sobre | Dalton Neres</title>
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -35,7 +35,7 @@
 
   <section class="sobre fade-in">
     <h2>Conheça o Desenvolvedor</h2>
-  <img src="imgs/dalton.jpeg" alt="Dalton Neres" title="Desenvolvedor: Dalton Neres" class="profile-pic">
+  <img src="favicon.svg" alt="Dalton Neres" title="Desenvolvedor: Dalton Neres" class="profile-pic">
     <p>Fala aí! Eu sou o <strong>Dalton José Neres</strong>, tenho 17 anos, estou no 3º ano do Ensino Médio e sou
       apaixonado por tecnologia desde que me entendo por gente. Sou natural de <strong>Salto do Lontra – PR</strong>,
       uma cidade do interior do Paraná, onde comecei a dar meus primeiros passos como desenvolvedor.</p>
@@ -171,21 +171,6 @@ observer.observe(document.querySelector(".resultados"));
   </div>
 </section>
 
-<section class="stack-dev fade-in">
-  <h2>💻 Minha Stack de Desenvolvimento</h2>
-
-  <div class="stack-card-dev">
-    <p>Stack moderna e completa para desenvolver qualquer tipo de solução digital:</p>
-
-    <ul>
-      <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, TypeScript, React</li>
-      <li><strong>Backend:</strong> Node.js, Express, Python</li>
-      <li><strong>Banco de Dados:</strong> MySQL, MongoDB</li>
-      <li><strong>Outros:</strong> APIs, automações, UX/UI, integrações com WhatsApp</li>
-    </ul>
-  </div>
-</section>
-
 <section class="skills fade-in">
   <h2>⚡ Minhas Habilidades</h2>
   <div class="skills-container">
@@ -211,6 +196,7 @@ observer.observe(document.querySelector(".resultados"));
     <div class="skill-card">PHP</div>
     <div class="skill-card">Inteligência Artificial</div>
     <div class="skill-card">UX/UI Design</div>
+    <div class="skill-card">Design Gráfico</div>
     <div class="skill-card">Mobile</div>
     <div class="skill-card">Git e GitHub</div>
   </div>
@@ -252,18 +238,8 @@ observer.observe(document.querySelector(".resultados"));
       Dalton Neres - Full Stack Developer
     </a>
     <br>
-    <span id="ultima-atualizacao"></span>
   </p>
 </footer>
-
-<script>
-  const data = new Date();
-  const dia = String(data.getDate()).padStart(2, '0');
-  const mes = data.toLocaleString('pt-BR', { month: 'long' });
-  const ano = data.getFullYear();
-  document.getElementById("ultima-atualizacao").textContent =
-    `Última atualização: ${dia} de ${mes} de ${ano}`;
-</script>
 
 <!-- Pop-up Promocional -->
 <div id="popupPromo" class="popup">

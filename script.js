@@ -1,38 +1,35 @@
 const frases = [
-  "Desenvolvedor Full-Stack focado em soluções escaláveis",
-  "Criando experiências digitais modernas e acessíveis",
-  "Transformando ideias em soluções reais"
+  "Soluções Full Stack eficientes.",
+  "Experiências digitais modernas.",
+  "Tecnologia que gera resultados.",
+  "Código com propósito e desempenho.",
+  "Soluções feitas para escalar.",
+  "Interfaces rápidas e acessíveis.",
+  "Desenvolvimento focado em performance.",
+  "Automação para simplificar processos.",
+  "Do conceito ao produto final.",
+  "Design funcional com engenharia sólida.",
+  "Sistemas estáveis e preparados para o futuro.",
+  "Acessibilidade como prioridade.",
+  "Aplicações robustas e elegantes.",
+  "Soluções digitais que fazem diferença.",
+  "Inovação guiada por dados."
 ];
 
-let i = 0;
-let j = 0;
-let txt = '';
 let fraseAtual = 0;
+const elemento = document.getElementById("text-dinamico");
 
-function digitar() {
-  if (j < frases[fraseAtual].length) {
-    txt += frases[fraseAtual][j];
-    document.getElementById('text-dinamico').innerHTML = txt;
-    j++;
-    setTimeout(digitar, 70);
-  } else {
-    setTimeout(apagar, 2000);
-  }
-}
-
-function apagar() {
-  if (j > 0) {
-    txt = txt.slice(0, -1);
-    document.getElementById('text-dinamico').innerHTML = txt;
-    j--;
-    setTimeout(apagar, 50);
-  } else {
+function trocarFrase() {
+  elemento.style.opacity = 0; 
+  setTimeout(() => {
+    elemento.innerHTML = frases[fraseAtual];
+    elemento.style.opacity = 1;
     fraseAtual = (fraseAtual + 1) % frases.length;
-    setTimeout(digitar, 500);
-  }
+  }, 600); // tempo do fade-out
 }
 
-digitar();
+trocarFrase();
+setInterval(trocarFrase, 6000); // muda a cada 6 segundos
 
 // Ativar fade-in ao carregar
 document.addEventListener("DOMContentLoaded", () => {

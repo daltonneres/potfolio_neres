@@ -660,3 +660,28 @@ body {
   margin-bottom: 18px;       /* espaço entre parágrafos */
   font-size: 1.1rem;         /* tamanho ótimo para desktop */
 }
+
+.portfolio-intro {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 80px 20px 0; /* AUMENTAR O ESPAÇO SUPERIOR */
+  text-align: center;
+}
+
+section {
+  padding-top: 60px;
+}
+
+.projeto-card a.btn {
+  margin-top: 1.2rem;  /* Espaço entre texto e botão */
+  display: inline-block;
+}
+
+.projeto-card {
+  padding: 2rem;       /* aumenta o espaço interno */
+  margin: 2.5rem auto; /* distância entre os cards */
+}
+
+.projeto-card p {
+  margin-bottom: 1.2rem;
+}

@@ -34,52 +34,31 @@
     </div>
   </div>
 
-  <!-- Seção principal -->
-  <section class="fade-in">
-    <h2>Tem um projeto? Bora tirar do papel.</h2>
-    <p>Entre em contato e vamos conversar sobre como posso transformar sua ideia em realidade digital.</p>
+<section class="fade-in contato-hero">
 
-    <form id="contatoForm" action="https://formsubmit.co/dev.neresdalton@gmail.com" method="POST">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu email" required>
-      <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+  <h2>Tem um projeto em mente?</h2>
+  <p>
+    Em vez de uma mensagem genérica, prefiro entender exatamente
+    o que você precisa para entregar a melhor solução possível.
+  </p>
 
-      <!-- Configurações -->
-      <input type="hidden" name="_captcha" value="false">
+  <div class="contato-acoes">
 
-      <button type="submit">Enviar</button>
-    </form>
+    <a href="personalizado.html" class="btn btn-destaque">
+      🚀 Criar projeto personalizado
+    </a>
 
-    <!-- Imagem de agradecimento (oculta por padrão) -->
-    <div id="agradecimento" style="display: none; text-align: center; margin-top: 2rem;">
-      <img src="imgs/agradecimento.png" alt="Obrigado pelo contato!"
-        style="max-width: 80%; width: auto; border-radius: 10px;">
-    </div>
+    <a href="https://wa.me/5546999711937" target="_blank" class="btn btn-secundario">
+      💬 Falar direto no WhatsApp
+    </a>
 
-    <script>
-      const form = document.getElementById("contatoForm");
-      const mensagem = document.getElementById("agradecimento");
+  </div>
 
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+  <p class="contato-observacao">
+    📌 O briefing leva menos de 2 minutos e ajuda a acelerar o atendimento.
+  </p>
 
-        const data = new FormData(form);
-
-        fetch(form.action, {
-          method: "POST",
-          body: data,
-        })
-          .then(() => {
-            form.style.display = "none"; // Esconde o formulário
-            mensagem.style.display = "block"; // Mostra a imagem de agradecimento
-          })
-          .catch(() => {
-            alert("Houve um erro ao enviar o formulário. Tente novamente.");
-          });
-      });
-    </script>
-
-  </section>
+</section>
 
 <!-- Contatos -->
 <section class="fade-in contatos">
@@ -158,16 +137,6 @@
     }
   </script>
 
-  <script>
-    // Ativa a animação de entrada suave
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".fade-in").forEach((el) => {
-        el.classList.add("visible");
-      });
-    });
-  </script>
-
-
 <!-- Rodapé -->
 <footer class="footer">
   <p class="rodape-final">
@@ -179,16 +148,7 @@
   </p>
 </footer>
 
-<!-- Pop-up Promocional -->
-<div id="popupPromo" class="popup">
-  <div class="popup-content">
-    <h2>🚀 GARANTA SUA REUNIÃO EXCLUSIVA!</h2>
-    <p>💼 Feche seu <strong>briefing</strong>, assine seu <strong>contrato</strong> e comece 2026 com grandes resultados!</p>
-    <p>🎁 <strong>Aproveite as promoções válidas até janeiro de 2026!</strong></p>
-    <a href="https://wa.me/46999711937" target="_blank" class="popup-btn">💬 FALAR NO WHATSAPP</a>
-    <button class="popup-close" onclick="fecharPopup()">X</button>
-  </div>
-</div>
+<script src="script.js"></script>
 </body>
 
 </html>

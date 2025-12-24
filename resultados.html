@@ -1,318 +1,179 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Desenvolvedor Full Stack com foco em acessibilidade, automação e soluções digitais modernas. Conheça Dalton Neres.">
-    <meta name="keywords" content="Dalton Neres, Desenvolvedor, Full Stack, Acessibilidade, Programação, Tecnologia, Web, Software, Site, App">
-    <meta name="author" content="Dalton Neres">
-    <meta name="robots" content="index, follow">
-    <title>Feedback's | Dalton Neres</title>
-    <link rel="icon" href="favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedbacks & Resultados | Dalton Neres</title>
 
-  <body>
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="servicos.html">Serviços</a></li>
-        <li><a href="resultados.html">Feedback's</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
+  <meta name="description" content="Veja feedbacks reais de clientes e resultados de projetos desenvolvidos por Dalton Neres.">
+  <meta name="author" content="Dalton Neres">
 
-    <div class="acessibilidade-container">
-      <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">
-        Acessibilidade
-      </button>
-      <div class="acessibilidade-menu" id="acessibilidadeMenu">
-        <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
-        <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
-        <button onclick="toggleContraste()" class="font-btn">
-          Alto Contraste
-        </button>
-      </div>
-    </div>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <section>
-      <h2 style="text-align: center; color: #3498db">O QUE DIZEM SOBRE NÓS</h2>
-      <p
-        style="
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto;
-          color: #ccc;
-        "
-      >
-        A confiança de cada cliente é a nossa maior conquista. Aqui você
-        encontra os feedback’s e resultados que refletem nosso compromisso em
-        entregar soluções digitais de qualidade, com dedicação e
-        profissionalismo. Cada opinião compartilhada é combustível para
-        continuarmos inovando e superando expectativas.
-      </p>
-    </section>
+<body>
 
-    <section class="depoimento">
-      <div class="depoimento-midia">
-        <video controls>
-          <source src="imgs/resultado.mp4" type="video/mp4" />
-          Seu navegador não suporta vídeos.
-        </video>
-      </div>
-      <div class="depoimento-texto">
-        <h4 class="depoimento-nome">- Ana Luiza Fernandes</h4>
-        <p class="depoimento-agradecimento">
-          🌟 Sua confiança é o que nos motiva a sempre entregar o melhor!
-        </p>
-      </div>
-    </section>
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="projetos.html">Projetos</a></li>
+    <li><a href="servicos.html">Serviços</a></li>
+    <li><a href="resultados.html" class="ativo">Feedback's</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</nav>
 
-    <section class="depoimento">
-      <div class="depoimento-texto">
-        <p class="depoimento-msg">
-          "Atendimento incrível, atenção aos detalhes e resultado impecável.
-          Recomendo de olhos fechados!"
-        </p>
-        <h4 class="depoimento-nome">- João Silva</h4>
-        <p class="depoimento-agradecimento">
-          💙 Cada palavra nos fortalece e inspira a continuar crescendo com
-          você!
-        </p>
-      </div>
-    </section>
+<!-- ACESSIBILIDADE -->
+<div class="acessibilidade-container">
+  <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
+  <div class="acessibilidade-menu" id="acessibilidadeMenu">
+    <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
+    <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
+    <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
+  </div>
+</div>
 
-    <section class="depoimento">
-      <div class="depoimento-midia">
-        <img src="imgs/depoimento.jpg" alt="Depoimento em print de conversa" />
-      </div>
-      <div class="depoimento-texto">
-        <h4 class="depoimento-nome">- Beatriz B. Machado</h4>
-        <p class="depoimento-agradecimento">
-          🙌 Cada parceria é uma conquista que celebramos juntos!
-        </p>
-      </div>
-    </section>
+<main class="fade-in">
 
-    <section class="depoimento">
-      <div class="depoimento-midia">
-        <img
-          src="imgs/depoimento 01.jpg"
-          alt="Depoimento em print de conversa"
-        />
-      </div>
-      <div class="depoimento-texto">
-        <h4 class="depoimento-nome">- Lucas M. Ferreira</h4>
-        <p class="depoimento-agradecimento">
-          🌟 Trabalhar com você trouxe inovação e resultados incríveis!
-        </p>
-      </div>
-    </section>
+<!-- INTRO -->
+<section class="resultados-intro">
+  <h1>Resultados Reais. Feedbacks Verdadeiros.</h1>
+  <p>
+    A confiança de cada cliente é a nossa maior conquista.
+    Aqui estão experiências reais que refletem dedicação,
+    profissionalismo e soluções que geram impacto.
+  </p>
+</section>
 
-    <section class="depoimento">
-      <div class="depoimento-midia">
-        <img
-          src="imgs/depoimento 02.jpg"
-          alt="Depoimento em print de conversa"
-        />
-      </div>
-      <div class="depoimento-texto">
-        <h4 class="depoimento-nome">- Ana Clara S. Lima</h4>
-        <p class="depoimento-agradecimento">
-          💡 Sua dedicação e criatividade transformaram nosso projeto!
-        </p>
-      </div>
-    </section>
+<!-- GRID DE DEPOIMENTOS -->
+<section class="depoimentos-grid">
 
-    <section class="depoimento">
-      <div class="depoimento-midia">
-        <img
-          src="imgs/depoimento - instagram.jpg"
-          alt="Depoimento em print de conversa"
-        />
-      </div>
-      <div class="depoimento-texto">
-        <p class="depoimento-agradecimento">
-          🚀 Agradecemos pela parceria! Nosso conteúdo alcançou 100k
-          visualizações nos últimos 90 dias no Instagram @dalton_neres.
-        </p>
-      </div>
-    </section>
-
-<section class="depoimento">
-  <div class="depoimento-midia">
+  <!-- VIDEO -->
+  <div class="depoimento-card">
     <video controls>
-      <source src="imgs/ana-depoimento.mp4" type="video/mp4" />
-      Seu navegador não suporta vídeos.
+      <source src="imgs/resultado.mp4" type="video/mp4">
     </video>
+    <h4>Ana Luiza Fernandes</h4>
+    <p>🌟 Sua confiança é o que nos motiva a entregar sempre o melhor.</p>
   </div>
-  <div class="depoimento-texto">
-    <h4 class="depoimento-nome">- Ana Luiza Fernandes ✨</h4>
-    <p class="depoimento-agradecimento">
-      💡 Não temos palavras para lhe dizer o quanto você foi importante para
-      nosso crescimento profissional! Foi um desafio e tanto, mas com toda
-      certeza irá agregar valor tanto em sua vida pessoal quanto profissional 🌟.
-      E claro, também irá impactar e transformar! 🙌
-      Lhe desejamos todo o sucesso do mundo e mais uma vez agradecemos por confiar no processo! 💖  
-      "Ana deu a sugestão de seu site ter uma planilha, fomos lá e criamos
-      um banco de dados totalmente personalizado para ela! 🛠️📊"
+
+  <!-- TEXTO -->
+  <div class="depoimento-card">
+    <p class="texto">
+      "Atendimento incrível, atenção aos detalhes e resultado impecável.
+      Recomendo de olhos fechados!"
+    </p>
+    <h4>João Silva</h4>
+  </div>
+
+  <!-- IMAGEM -->
+  <div class="depoimento-card">
+    <img src="imgs/depoimento.jpg" alt="Depoimento Beatriz">
+    <h4>Beatriz B. Machado</h4>
+    <p>🙌 Cada parceria é uma conquista que celebramos juntos!</p>
+  </div>
+
+  <div class="depoimento-card">
+    <img src="imgs/depoimento 01.jpg" alt="Depoimento Lucas">
+    <h4>Lucas M. Ferreira</h4>
+    <p>🌟 Inovação e resultados incríveis!</p>
+  </div>
+
+  <div class="depoimento-card">
+    <img src="imgs/depoimento 02.jpg" alt="Depoimento Ana Clara">
+    <h4>Ana Clara S. Lima</h4>
+    <p>💡 Criatividade que transformou nosso projeto.</p>
+  </div>
+
+  <div class="depoimento-card">
+    <img src="imgs/depoimento - instagram.jpg" alt="Instagram">
+    <p>
+      🚀 Conteúdo alcançando mais de <strong>100k visualizações</strong>
+      em 90 dias no Instagram.
     </p>
   </div>
-</section>
 
-<section class="depoimento">
-  <div class="depoimento-midia">
-    <img
-      src="imgs/depoimento 03.jpg"
-      alt="Depoimento em print de conversa"
-    />
-  </div>
-  <div class="depoimento-texto">
-    <h4 class="depoimento-nome">- Cliente não identificado</h4>
-    <p class="depoimento-agradecimento">
-      Sempre ouvimos algumas frases assim, vindo de alguns de nossos clientes 😂!  
-      Mas podemos garantir que dessa forma seremos capazes de entregar o melhor resultado! 🚀💪
-    </p>
-  </div>
-</section>
-
-
-<section class="depoimento">
-  <div class="depoimento-midia">
-    <img
-      src="imgs/feedbackdesign.jpeg"
-      alt="Depoimento da cliente Paola em print de conversa"
-    />
-  </div>
-  <div class="depoimento-texto">
-    <h4 class="depoimento-nome">- Paola</h4>
-    <p class="depoimento-agradecimento">
-      É sempre gratificante receber retornos tão positivos como o da Paola! 🤩  
-      Ficamos felizes em saber que nossa dedicação em cada detalhe refletiu no resultado final.  
-      Obrigado pela confiança em nosso trabalho — seguimos entregando qualidade e profissionalismo! 💚✨
-    </p>
-  </div>
-</section>
-
-<section class="depoimento">
-  <div class="depoimento-midia">
+  <div class="depoimento-card">
     <video controls>
-      <source src="imgs/feedback Ana.mp4" type="video/mp4" />
-      Seu navegador não suporta vídeos.
+      <source src="imgs/ana-depoimento.mp4" type="video/mp4">
     </video>
-  </div>
-  <div class="depoimento-texto">
-    <h4 class="depoimento-nome">- Ana Luiza Fernandes ✨</h4>
-    <p class="depoimento-agradecimento">
-      💡 Agradecemos imensamente à Ana Luíza Fernandes por nos enviar mais um feedback tão valioso!  
-      Seu empenho em compartilhar sua experiência nos motiva ainda mais a entregar o melhor em cada projeto.  
-      Cada feedback nos ajuda a melhorar e criar soluções digitais cada vez mais acessíveis, modernas e impactantes. 🌟🙌
+    <h4>Ana Luiza Fernandes</h4>
+    <p>
+      Criamos um banco de dados totalmente personalizado
+      baseado na necessidade real da cliente. 🛠️📊
     </p>
   </div>
-</section>
 
-<section class="depoimento">
-  <div class="depoimento-midia">
+  <div class="depoimento-card">
+    <img src="imgs/feedbackdesign.jpeg" alt="Feedback Paola">
+    <h4>Paola</h4>
+    <p>
+      Obrigado pela confiança! Cada detalhe pensado reflete no resultado final. 💚
+    </p>
+  </div>
+
+  <div class="depoimento-card">
     <video controls>
-      <source src="imgs/depoimento - paola.mp4" type="video/mp4" />
-      Seu navegador não suporta vídeos.
+      <source src="imgs/depoimento - paola.mp4" type="video/mp4">
     </video>
-  </div>
-  <div class="depoimento-texto">
-    <h4 class="depoimento-nome">- Paola ✨</h4>
-    <p class="depoimento-agradecimento">
-      💬 A Paola compartilhou um depoimento inspirador dizendo que confia plenamente em nosso trabalho
-      e que, conhecendo os sites incríveis que já desenvolvemos, decidiu pensar em nós para dar vida aos
-      seus próprios projetos! 🌟  
-      É uma honra conquistar essa confiança — e seguimos firmes, criando soluções digitais que superam
-      expectativas e transformam ideias em realidade. 🚀💜
+    <h4>Paola</h4>
+    <p>
+      💬 Confiança total para dar vida a novos projetos digitais.
     </p>
   </div>
+
 </section>
 
-<section class="depoimento">
-  <div class="depoimento-midia">
-    <img
-      src="imgs/quiz.jpg"
-      alt="Depoimento em print de conversa"
-    />
-  </div>
-  <div class="depoimento-texto">
-    <h4 class="depoimento-nome">- Cliente não identificado</h4>
-    <p class="depoimento-agradecimento">
-      💡 Nosso cliente elogiou profundamente a plataforma de quizzes!  
-      Esse tipo de feedback nos inspira a continuar criando soluções digitais que combinam tecnologia, acessibilidade e impacto real para todos que utilizam. 🚀🎯
-    </p>
-  </div>
-</section>
+<!-- CTA FINAL -->
+<section class="resultados-cta">
+  <h2>Quer alcançar resultados assim?</h2>
+  <p>
+    Vamos transformar sua ideia em uma solução digital
+    que realmente gere impacto.
+  </p>
 
-<section class="depoimento">
-  <div class="depoimento-midia">
-    <video controls>
-      <source src="imgs/empreendedor.mp4" type="video/mp4" />
-      Seu navegador não suporta vídeos.
-    </video>
-  </div>
-  <div class="depoimento-texto">
-    <h4 class="depoimento-nome">- Ana Luiza Fernandes ✨</h4>
-<p class="depoimento-agradecimento">
-  💡 Somos imensamente gratos à Ana Luíza Fernandes pelos elogios tão generosos e detalhados!  
-  Ela destacou nosso comprometimento, atenção aos mínimos detalhes e agilidade na entrega — e isso nos enche de motivação para continuar entregando sempre o melhor.  
-</p>
+  <div class="cta-actions">
+    <a href="personalizado.html" class="btn-primary">🚀 Criar projeto personalizado</a>
+    <a href="https://wa.me/5546999711937" target="_blank" class="btn-secondary">💬 Falar no WhatsApp</a>
   </div>
 </section>
 
-    <div class="btn-container">
-      <a href="index.html" class="btn">Voltar para o Início</a>
-    </div>
+</main>
 
-<!-- Rodapé -->
+<!-- FOOTER -->
 <footer class="footer">
   <p class="rodape-final">
     Desenvolvido por
-    <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
-      Dalton Neres - Full Stack Developer
+    <a href="https://github.com/daltonneres" target="_blank">
+      Dalton Neres — Full Stack Developer
     </a>
-    <br>
   </p>
 </footer>
 
-    <!-- Scripts -->
-    <script>
-      let tamanhoFonteAtual = 100;
-      let contrasteAtivo = false;
+<!-- SCRIPTS -->
+<script>
+  let tamanhoFonteAtual = 100;
+  let contrasteAtivo = false;
 
-      function ajustarFonte(acao) {
-        if (acao === "aumentar") {
-          tamanhoFonteAtual += 10;
-        } else if (acao === "diminuir") {
-          tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
-        }
-        document.body.style.fontSize = `${tamanhoFonteAtual}%`;
-      }
+  function ajustarFonte(acao) {
+    tamanhoFonteAtual += (acao === 'aumentar') ? 10 : -10;
+    tamanhoFonteAtual = Math.max(70, tamanhoFonteAtual);
+    document.body.style.fontSize = tamanhoFonteAtual + '%';
+  }
 
-      function toggleContraste() {
-        contrasteAtivo = !contrasteAtivo;
-        document.body.classList.toggle("alto-contraste", contrasteAtivo);
-      }
+  function toggleContraste() {
+    contrasteAtivo = !contrasteAtivo;
+    document.body.classList.toggle('alto-contraste', contrasteAtivo);
+  }
 
-      function toggleAcessibilidade() {
-        const menu = document.getElementById("acessibilidadeMenu");
-        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-      }
-    </script>
+  function toggleAcessibilidade() {
+    const menu = document.getElementById("acessibilidadeMenu");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+  }
+</script>
 
-    <!-- Pop-up Promocional -->
-<div id="popupPromo" class="popup">
-  <div class="popup-content">
-    <h2>🚀 GARANTA SUA REUNIÃO EXCLUSIVA!</h2>
-    <p>💼 Feche seu <strong>briefing</strong>, assine seu <strong>contrato</strong> e comece 2026 com grandes resultados!</p>
-    <p>🎁 <strong>Aproveite as promoções válidas até janeiro de 2026!</strong></p>
-    <a href="https://wa.me/46999711937" target="_blank" class="popup-btn">💬 FALAR NO WHATSAPP</a>
-    <button class="popup-close" onclick="fecharPopup()">X</button>
-  </div>
-</div>
-  </body>
+</body>
 </html>

@@ -77,61 +77,33 @@
   </div>
 </section>
 
-<section class="resultados-dev fade-in">
+<section class="resultados-dev fade-in" id="resultados">
   <h2>🚀 Resultados em Números</h2>
 
   <div class="resultados-grid">
+
     <div class="resultado-card">
-      <h3>+35</h3>
+      <h3 class="numero" data-valor="35">0</h3>
       <p>Projetos Entregues</p>
     </div>
 
     <div class="resultado-card">
-      <h3>+18</h3>
+      <h3 class="numero" data-valor="18">0</h3>
       <p>Clientes Atendidos</p>
     </div>
 
     <div class="resultado-card">
-      <h3>+120k</h3>
-      <p>Visualizações Totais</p>
+      <h3 class="numero" data-valor="120">0</h3>
+      <p>Mil Visualizações</p>
     </div>
 
     <div class="resultado-card">
-      <h3>+5</h3>
+      <h3 class="numero" data-valor="5">0</h3>
       <p>Sistemas Proprietários</p>
     </div>
+
   </div>
 </section>
-
-<script>
-function animarContadores() {
-  const elementos = document.querySelectorAll(".numero");
-
-  elementos.forEach(el => {
-    const max = +el.getAttribute("data-valor");
-    let valorAtual = 0;
-    const incremento = Math.ceil(max / 100);
-
-    const atualizar = setInterval(() => {
-      valorAtual += incremento;
-      if (valorAtual >= max) {
-        el.textContent = max.toLocaleString('pt-BR');
-        clearInterval(atualizar);
-      } else {
-        el.textContent = valorAtual.toLocaleString('pt-BR');
-      }
-    }, 20);
-  });
-}
-
-const observer = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting) {
-    animarContadores();
-    observer.disconnect();
-  }
-});
-observer.observe(document.querySelector(".resultados"));
-</script>
 
 <section class="como-trabalho-dev fade-in">
   <h2>🛠 Como Eu Trabalho</h2>
@@ -180,25 +152,40 @@ observer.observe(document.querySelector(".resultados"));
     <div class="skill-card">TypeScript</div>
     <div class="skill-card">React</div>
     <div class="skill-card">Node.js</div>
+    <div class="skill-card">Git e GitHub</div>
     <div class="skill-card">Express.js</div>
     <div class="skill-card">Java</div>
     <div class="skill-card">C#</div>
     <div class="skill-card">C++</div>
+    <div class="skill-card">Design Gráfico</div>
   </div>
 </section>
 
-<section class="skills fade-in">
+<section class="skills fade-in" id="skills-andamento">
   <h2>📚 Em andamento</h2>
-  <div class="skills-container">
-    <div class="skill-card">MySQL</div>
-    <div class="skill-card">MongoDB</div>
-    <div class="skill-card">Python</div>
-    <div class="skill-card">PHP</div>
-    <div class="skill-card">Inteligência Artificial</div>
-    <div class="skill-card">UX/UI Design</div>
-    <div class="skill-card">Design Gráfico</div>
-    <div class="skill-card">Mobile</div>
-    <div class="skill-card">Git e GitHub</div>
+
+  <div class="skills-levels">
+
+    <div class="skill-level">
+      <span>MySQL</span>
+      <small class="nivel">Intermediário</small>
+    </div>
+
+    <div class="skill-level">
+      <span>MongoDB</span>
+      <small class="nivel">Intermediário</small>
+    </div>
+
+    <div class="skill-level">
+      <span>Python</span>
+      <small class="nivel">Básico</small>
+    </div>
+
+    <div class="skill-level">
+      <span>UX/UI Design</span>
+      <small class="nivel">Intermediário</small>
+    </div>
+
   </div>
 </section>
 
@@ -241,16 +228,6 @@ observer.observe(document.querySelector(".resultados"));
   </p>
 </footer>
 
-<!-- Pop-up Promocional -->
-<div id="popupPromo" class="popup">
-  <div class="popup-content">
-    <h2>🚀 GARANTA SUA REUNIÃO EXCLUSIVA!</h2>
-    <p>💼 Feche seu <strong>briefing</strong>, assine seu <strong>contrato</strong> e comece 2026 com grandes resultados!</p>
-    <p>🎁 <strong>Aproveite as promoções válidas até janeiro de 2026!</strong></p>
-    <a href="https://wa.me/46999711937" target="_blank" class="popup-btn">💬 FALAR NO WHATSAPP</a>
-    <button class="popup-close" onclick="fecharPopup()">X</button>
-  </div>
-</div>
   <script src="script.js"></script>
 
 </body>

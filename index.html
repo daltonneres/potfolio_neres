@@ -35,57 +35,52 @@
       </div>
     </div>
 
-<!-- Pop-up Promocional -->
-<div id="popupPromo" class="popup">
-  <div class="popup-content">
-    <h2>🚀 GARANTA SUA REUNIÃO EXCLUSIVA!</h2>
-    <p>💼 Feche seu <strong>briefing</strong>, assine seu <strong>contrato</strong> e comece 2026 com grandes resultados!</p>
-    <p>🎁 <strong>Aproveite as promoções válidas até janeiro de 2026!</strong></p>
-    <a href="https://wa.me/46999711937" target="_blank" class="popup-btn">💬 FALAR NO WHATSAPP</a>
-    <button class="popup-close" onclick="fecharPopup()">X</button>
-  </div>
-</div>
+<section class="hero">
+  <div class="hero-overlay"></div>
 
-<section class="banner">
-  <div class="overlay">
-    <h1>Dalton Neres | Full Stack</h1>
-    <h2 id="text-dinamico">Desenvolvedor Full-Stack focado em soluções escaláveis</h2>
-    <a href="projetos.html" class="btn">Projetos Desenvolvidos</a>
+  <div class="hero-content fade-in">
+    <span class="hero-badge">🚀 Desenvolvedor Full Stack</span>
+
+    <h1>
+      Dalton Neres
+      <span>Transformando ideias em soluções digitais</span>
+    </h1>
+
+    <p>
+      Desenvolvimento de sites, sistemas e soluções personalizadas
+      com foco em performance, acessibilidade e resultados reais.
+    </p>
+
+    <div class="hero-actions">
+      <a href="projetos.html" class="btn-primary">💼 Ver Projetos</a>
+      <a href="personalizado.html" class="btn-secondary">🚀 Criar Projeto</a>
+    </div>
   </div>
 </section>
 
-    <script>
-      let tamanhoFonteAtual = 100;
-      let contrasteAtivo = false;
+<script>
+  let tamanhoFonteAtual = 100;
+  let contrasteAtivo = false;
 
-      function ajustarFonte(acao) {
-        if (acao === "aumentar") {
-          tamanhoFonteAtual += 10;
-        } else if (acao === "diminuir") {
-          tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
-        }
-        document.body.style.fontSize = `${tamanhoFonteAtual}%`;
-      }
+  function ajustarFonte(acao) {
+    if (acao === "aumentar") {
+      tamanhoFonteAtual += 10;
+    } else if (acao === "diminuir") {
+      tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
+    }
+    document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+  }
 
-      function toggleContraste() {
-        contrasteAtivo = !contrasteAtivo;
-        document.body.classList.toggle("alto-contraste", contrasteAtivo);
-      }
+  function toggleContraste() {
+    contrasteAtivo = !contrasteAtivo;
+    document.body.classList.toggle("alto-contraste", contrasteAtivo);
+  }
 
-      function toggleAcessibilidade() {
-        const menu = document.getElementById("acessibilidadeMenu");
-        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-      }
-    </script>
-
-    <script>
-      let contrasteativo = false;
-
-      function toggleContraste() {
-        contrasteAtivo = !contrasteAtivo;
-        document.body.classList.toggle("alto-contraste", contrasteAtivo);
-      }
-    </script>
+  function toggleAcessibilidade() {
+    const menu = document.getElementById("acessibilidadeMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  }
+</script>
 
 <!-- Rodapé -->
 <footer class="footer">
@@ -95,18 +90,8 @@
       Dalton Neres - Full Stack Developer
     </a>
     <br>
-    <span id="ultima-atualizacao"></span>
   </p>
 </footer>
-
-<script>
-  const data = new Date();
-  const dia = String(data.getDate()).padStart(2, '0');
-  const mes = data.toLocaleString('pt-BR', { month: 'long' });
-  const ano = data.getFullYear();
-  document.getElementById("ultima-atualizacao").textContent =
-    `Última atualização: ${dia} de ${mes} de ${ano}`;
-</script>
 
     <script src="script.js"></script>
   </body>

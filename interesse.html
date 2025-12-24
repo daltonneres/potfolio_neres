@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soluções por Interesse | Dalton Neres</title>
+  <meta name="description" content="Veja soluções e projetos desenvolvidos para o seu tipo de negócio.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="resultados.html">Feedback's</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <main class="interest-page fade-in">
+
+    <!-- INTRO -->
+    <section class="interest-intro">
+      <h1>Soluções pensadas para o seu negócio</h1>
+      <p>
+        Selecione seu ramo de atuação e veja projetos e demonstrações
+        que fazem sentido para sua realidade.
+      </p>
+    </section>
+
+    <!-- FORM -->
+    <section class="interest-form">
+      <label for="ramo">Qual é o seu ramo?</label>
+
+<select id="ramo" onchange="filtrarPorRamo()">
+  <option value="">Selecione uma opção</option>
+  <option value="todos">Quero ver todos os projetos</option>
+  <option value="clinica">Clínica / Saúde</option>
+  <option value="restaurante">Restaurante / Alimentação</option>
+  <option value="empresa">Empresa / Serviços</option>
+  <option value="educacao">Educação</option>
+  <option value="ecommerce">E-commerce</option>
+  <option value="personalizado">Quero um projeto personalizado</option>
+</select>
+    </section>
+
+<!-- PROJETOS -->
+<section class="interest-projects" id="interestProjects">
+
+  <!-- CLÍNICA / SAÚDE -->
+  <div class="interest-card hidden" data-ramo="clinica">
+    <h3>Sistema de Agendamentos Online</h3>
+    <p>Sistema com gestão de horários, clientes e painel administrativo.</p>
+    <small>Baseado em projeto real</small>
+  </div>
+
+  <div class="interest-card hidden" data-ramo="clinica">
+    <h3>Sistema para Clínicas</h3>
+    <p>Gestão de pacientes, consultas, prontuários e relatórios.</p>
+    <small>Projeto demonstrativo</small>
+  </div>
+
+  <!-- RESTAURANTE / ALIMENTAÇÃO -->
+  <div class="interest-card hidden" data-ramo="restaurante">
+    <h3>Smash Burger</h3>
+    <p>Cardápio digital moderno com pedidos via WhatsApp.</p>
+    <small>Projeto real</small>
+  </div>
+
+  <div class="interest-card hidden" data-ramo="restaurante">
+    <h3>La Famiglia Pizza</h3>
+    <p>Cardápio digital para pizzaria com navegação intuitiva.</p>
+    <small>Projeto real</small>
+  </div>
+
+  <div class="interest-card hidden" data-ramo="restaurante">
+    <h3>Gelato di Casa</h3>
+    <p>Site elegante para sorveteria gourmet.</p>
+    <small>Projeto real</small>
+  </div>
+
+  <!-- EMPRESA / SERVIÇOS -->
+  <div class="interest-card hidden" data-ramo="empresa">
+    <h3>Evolux Tecnologia</h3>
+    <p>Site institucional corporativo para empresa de tecnologia.</p>
+    <small>Projeto real</small>
+  </div>
+
+  <div class="interest-card hidden" data-ramo="empresa">
+    <h3>Verifik</h3>
+    <p>Site institucional para soluções financeiras e crédito.</p>
+    <small>Projeto real</small>
+  </div>
+
+  <div class="interest-card hidden" data-ramo="empresa">
+    <h3>Dashboard Empresarial</h3>
+    <p>Painel estratégico com indicadores e métricas.</p>
+    <small>Projeto demonstrativo</small>
+  </div>
+
+  <!-- EDUCAÇÃO -->
+  <div class="interest-card hidden" data-ramo="educacao">
+    <h3>You Can — Escola de Inglês</h3>
+    <p>Site institucional com blog, quiz e sistema de agendamento.</p>
+    <small>Projeto real</small>
+  </div>
+
+  <div class="interest-card hidden" data-ramo="educacao">
+    <h3>Portal Educacional</h3>
+    <p>Ambiente educacional com alunos, conteúdos e quizzes.</p>
+    <small>Projeto demonstrativo</small>
+  </div>
+
+  <!-- E-COMMERCE -->
+  <div class="interest-card hidden" data-ramo="ecommerce">
+    <h3>Ônix Deluxe</h3>
+    <p>E-commerce com catálogo, carrinho e pedidos via WhatsApp.</p>
+    <small>Projeto real</small>
+  </div>
+
+  <div class="interest-card hidden" data-ramo="ecommerce">
+    <h3>E-commerce Demonstrativo</h3>
+    <p>Modelo genérico de loja virtual para apresentação.</p>
+    <small>Projeto demonstrativo</small>
+  </div>
+
+</section>
+
+<section class="interest-cta hidden" id="interestCTA">
+  <h2>Pronto para criar algo assim?</h2>
+  <p>
+    Entre em contato e desenvolva uma solução sob medida
+    para o seu negócio.
+  </p>
+
+  <a href="https://wa.me/46999711937" target="_blank" class="btn">
+    💬 Falar no WhatsApp
+  </a>
+</section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="rodape-final">
+      Desenvolvido por
+      <a href="https://github.com/daltonneres" target="_blank">
+        Dalton Neres - Full Stack Developer
+      </a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

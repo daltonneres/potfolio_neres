@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto Personalizado | Dalton Neres</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solicite um projeto personalizado sob medida para o seu negócio.">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="projetos.html">Projetos</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</nav>
+
+<main class="interest-page fade-in">
+
+  <!-- INTRO -->
+  <section class="interest-intro">
+    <h1>Projeto Personalizado</h1>
+    <p>
+      Responda algumas perguntas rápidas e receba uma solução
+      pensada exclusivamente para o seu negócio.
+    </p>
+  </section>
+
+  <!-- FORM -->
+  <section class="interest-form">
+    <form id="briefingForm">
+
+      <label>Nome completo</label>
+      <input type="text" id="nome" required>
+
+      <label>E-mail</label>
+      <input type="email" id="email" required>
+
+      <label>WhatsApp</label>
+      <input type="tel" id="whatsapp" placeholder="(46) 99999-9999" required>
+
+      <label>Tipo de negócio</label>
+      <select id="ramo" required>
+        <option value="">Selecione</option>
+        <option>Clínica / Saúde</option>
+        <option>Restaurante / Alimentação</option>
+        <option>Empresa / Serviços</option>
+        <option>Educação</option>
+        <option>E-commerce</option>
+      </select>
+
+      <label>O que você precisa?</label>
+      <textarea id="objetivo" rows="4" required
+        placeholder="Ex: site institucional, sistema de agendamento, cardápio digital..."></textarea>
+
+      <label>Prazo ideal</label>
+      <select id="prazo">
+        <option>Sem urgência</option>
+        <option>Até 15 dias</option>
+        <option>Até 30 dias</option>
+        <option>Mais de 30 dias</option>
+      </select>
+
+      <label>Orçamento estimado</label>
+      <select id="orcamento">
+        <option>A definir</option>
+        <option>Até R$ 1.000</option>
+        <option>R$ 1.000 – R$ 3.000</option>
+        <option>R$ 3.000+</option>
+      </select>
+
+      <button type="submit" class="btn">
+        🚀 Enviar briefing
+      </button>
+
+    </form>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>
+    Desenvolvido por
+    <a href="https://github.com/daltonneres" target="_blank">
+      Dalton Neres - Full Stack Developer
+    </a>
+  </p>
+</footer>
+
+<script src="personalizado.js"></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("_jL2J3QMOfA5ULepx");
+  })();
+</script>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="personalizado.js"></script>
+
+</body>
+</html>

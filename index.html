@@ -99,6 +99,43 @@
   document.getElementById("anoAtual").textContent = new Date().getFullYear();
 </script>
 
-    <script src="script.js"></script>
+<script type="module" src="script.js"></script>
+
+
+<div id="popupLead" class="popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="fecharPopup()">×</button>
+    
+    <div id="etapa1">
+      <h2>Olá! Seja bem-vindo(a) 👋</h2>
+      <p>É um grande prazer ter você aqui! ✨<br>Para começarmos, como podemos te chamar?</p>
+      <input type="text" id="leadNome" placeholder="Digite seu nome aqui...">
+      <button onclick="proximaEtapa(2)" class="popup-btn">Continuar 🚀</button>
+    </div>
+
+    <div id="etapa2" style="display:none;">
+      <h2>Que bom te conhecer, <span id="msgObrigado"></span>! 😊</h2>
+      <p>Estamos prontos para te ajudar. O que você busca hoje? 👇</p>
+      <div class="popup-actions">
+        <button onclick="registrarLead('Visita')" class="popup-btn btn-outline">Apenas conhecer ✨</button>
+        <button onclick="proximaEtapa(3)" class="popup-btn">Tenho interesse 🔥</button>
+      </div>
+    </div>
+
+    <div id="etapa3" style="display:none;">
+      <h2>Excelente escolha! 🎁</h2>
+      <p>Informe seu WhatsApp para receber um <b>presente exclusivo</b> e falar com nosso time:</p>
+      <input type="tel" id="leadTel" placeholder="(00) 00000-0000">
+      <button onclick="registrarLead('Interesse')" class="popup-btn">Liberar meu Cupom 🏷️</button>
+    </div>
+
+    <div id="etapaFinal" style="display:none;">
+      <h2 id="tituloFinal">Oba! Está garantido! 🎉</h2>
+      <p id="textoFinal"></p>
+      <button onclick="fecharPopup()" class="popup-btn btn-outline">Explorar site 🌐</button>
+    </div>
+  </div>
+</div>
+
   </body>
 </html>

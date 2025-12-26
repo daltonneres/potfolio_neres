@@ -92,7 +92,7 @@ window.registrarLead = async function(tipo) {
     console.error("Erro ao salvar no Firebase:", e);
   }
 
-  setTimeout(window.fecharPopup, 4000);
+  setTimeout(window.fecharPopup, 2000);
 };
 
 window.fecharPopup = function() {

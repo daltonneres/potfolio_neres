@@ -251,3 +251,46 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.portfolio-card').forEach(card => {
   observer.observe(card);
 });
+
+window.filtrarPorRamo = function () {
+  const select = document.getElementById("ramo");
+  const valor = select.value;
+
+  const cards = document.querySelectorAll(".interest-card");
+  const cta = document.getElementById("interestCTA");
+
+  // Esconde tudo inicialmente
+  cards.forEach(card => {
+    card.classList.add("hidden");
+  });
+
+  // Se nada selecionado
+  if (valor === "") {
+    cta.classList.add("hidden");
+    return;
+  }
+
+  // PERSONALIZADO → redireciona
+  if (valor === "personalizado") {
+    window.location.href = "personalizado.html";
+    return;
+  }
+
+  // MOSTRAR TODOS
+  if (valor === "todos") {
+    cards.forEach(card => {
+      card.classList.remove("hidden");
+    });
+    cta.classList.remove("hidden");
+    return;
+  }
+
+  // FILTRAR POR RAMO
+  cards.forEach(card => {
+    if (card.dataset.ramo === valor) {
+      card.classList.remove("hidden");
+    }
+  });
+
+  cta.classList.remove("hidden");
+};

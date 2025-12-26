@@ -76,6 +76,21 @@
         <option>R$ 3.000+</option>
       </select>
 
+      <label>Domínio desejado</label>
+<select id="dominio" required onchange="toggleOutroDominio()">
+  <option value="">Selecione</option>
+  <option value=".com.br">.com.br</option>
+  <option value=".com">.com</option>
+  <option value=".online">.online</option>
+  <option value=".shop">.shop</option>
+  <option value="outro">Outro</option>
+</select>
+
+<div id="outro-dominio" style="display: none;">
+  <label>Informe o domínio desejado</label>
+  <input type="text" id="dominioOutro" placeholder="Ex: .tech, .digital, .site">
+</div>
+
       <button type="submit" class="btn">
         🚀 Enviar briefing
       </button>

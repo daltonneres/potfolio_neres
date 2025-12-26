@@ -14,6 +14,65 @@
         .badge { padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; }
         .badge-visita { background: #555; color: white; }
         .badge-interesse { background: #27ae60; color: white; }
+/* Situação */
+.status-novo {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.status-contato {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.status-concluido {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+/* Menu de ações */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background: #222;
+  color: #fff;
+  border: 1px solid #3498db;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #111;
+  min-width: 180px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.dropdown-content button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background: #3498db;
+  color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
     </style>
 </head>
 <body class="admin-body">
@@ -24,6 +83,9 @@
             <a href="index.html" class="btn-secondary" style="padding: 10px 20px; text-decoration: none;">
                 Início
             </a>
+            <button onclick="abrirModalLead()" class="btn-secondary" style="padding: 10px 20px;">
+  Novo lead (manual)
+</button>
             <button onclick="logout()" class="btn-secondary" style="padding: 10px 20px;">
                 Sair
             </button>
@@ -31,14 +93,16 @@
     </div>
 
     <table id="tabelaLeads">
-        <thead>
-            <tr>
-                <th>Data</th>
-                <th>Nome</th>
-                <th>Status/Tipo</th>
-                <th>WhatsApp</th>
-            </tr>
-        </thead>
+<thead>
+  <tr>
+    <th>Data</th>
+    <th>Nome</th>
+    <th>Status/Tipo</th>
+    <th>WhatsApp</th>
+    <th>Situação</th>
+    <th>Ações</th>
+  </tr>
+</thead>
         <tbody>
             </tbody>
     </table>
@@ -46,7 +110,18 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        import { getFirestore, collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  query,
+  orderBy,
+  onSnapshot,
+  doc,
+  deleteDoc,
+  updateDoc,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyD-7iM7QKN8bKYY8CLm4df8wbyA1qvUZxw",
@@ -71,27 +146,115 @@
         };
 
         // Carregar Leads em Tempo Real
-        const q = query(collection(db, "leads"), orderBy("dataCriacao", "desc"));
-        onSnapshot(q, (snapshot) => {
-            const tbody = document.querySelector("#tabelaLeads tbody");
-            tbody.innerHTML = "";
-            
-            snapshot.forEach((doc) => {
-                const lead = doc.data();
-                const data = lead.dataCriacao?.toDate().toLocaleString('pt-BR') || "Aguardando...";
-                const classeBadge = lead.tipo === 'Interesse' ? 'badge-interesse' : 'badge-visita';
+const q = query(collection(db, "leads"), orderBy("dataCriacao", "desc"));
 
-                tbody.innerHTML += `
-                    <tr>
-                        <td>${data}</td>
-                        <td>${lead.nome}</td>
-                        <td><span class="badge ${classeBadge}">${lead.tipo}</span></td>
-                        <td>${lead.telefone || '---'}</td>
-                    </tr>
-                `;
-            });
-        });
-    </script>
+onSnapshot(q, (snapshot) => {
+  const tbody = document.querySelector("#tabelaLeads tbody");
+  tbody.innerHTML = "";
+
+  snapshot.forEach((docSnap) => {
+    const lead = docSnap.data();
+    const id = docSnap.id;
+
+    const data = lead.dataCriacao?.toDate().toLocaleString("pt-BR") || "Aguardando...";
+    const classeBadge = lead.tipo === "Interesse" ? "badge-interesse" : "badge-visita";
+
+    const situacao = lead.situacao || "Novo";
+    let classeSituacao = "status-novo";
+    if (situacao === "Em contato") classeSituacao = "status-contato";
+    if (situacao === "Concluído") classeSituacao = "status-concluido";
+
+    tbody.innerHTML += `
+      <tr>
+        <td>${data}</td>
+        <td>${lead.nome}</td>
+        <td><span class="badge ${classeBadge}">${lead.tipo}</span></td>
+        <td>${lead.telefone || "---"}</td>
+        <td class="${classeSituacao}">${situacao}</td>
+        <td>
+          <div class="dropdown">
+            <button class="dropdown-btn">Ações</button>
+            <div class="dropdown-content">
+              <button onclick="chamarWhats('${lead.telefone}', '${lead.nome}', '${id}')">
+                Chamar no WhatsApp
+              </button>
+              <button onclick="marcarContato('${id}')">
+                Marcar como Em contato
+              </button>
+              <button onclick="concluirLead('${id}')">
+                Marcar como Concluído
+              </button>
+              <button onclick="excluirLead('${id}')">
+                Excluir atendimento
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    `;
+  });
+});
+
+// WhatsApp
+window.chamarWhats = (telefone, nome, id) => {
+  if (!telefone) return alert("Telefone não informado");
+
+  const msg = encodeURIComponent(
+    `Olá ${nome}, tudo bem? 😊\nSou o Dalton, estou entrando em contato sobre seu atendimento.`
+  );
+
+  window.open(`https://wa.me/55${telefone}?text=${msg}`, "_blank");
+  marcarContato(id);
+};
+
+// Marcar como Em contato
+window.marcarContato = async (id) => {
+  await updateDoc(doc(db, "leads", id), { situacao: "Em contato" });
+};
+
+// Concluir
+window.concluirLead = async (id) => {
+  await updateDoc(doc(db, "leads", id), { situacao: "Concluído" });
+};
+
+// Excluir
+window.excluirLead = async (id) => {
+  if (!confirm("Deseja realmente excluir este atendimento?")) return;
+  await deleteDoc(doc(db, "leads", id));
+};
+
+window.abrirModalLead = () => {
+  document.getElementById("modalLead").style.display = "block";
+};
+
+window.fecharModalLead = () => {
+  document.getElementById("modalLead").style.display = "none";
+};
+
+window.salvarLeadManual = async () => {
+  const nome = document.getElementById("manualNome").value.trim();
+  const telefone = document.getElementById("manualTelefone").value.trim();
+  const tipo = document.getElementById("manualTipo").value;
+
+  if (!nome) {
+    alert("Informe o nome do lead");
+    return;
+  }
+
+  await addDoc(collection(db, "leads"), {
+    nome,
+    telefone,
+    tipo,
+    situacao: "Novo",
+    dataCriacao: serverTimestamp()
+  });
+
+  fecharModalLead();
+
+  document.getElementById("manualNome").value = "";
+  document.getElementById("manualTelefone").value = "";
+};
+</script>
 
 <!-- Rodapé -->
 <footer class="footer">
@@ -108,6 +271,29 @@
 <script>
   document.getElementById("anoAtual").textContent = new Date().getFullYear();
 </script>
+
+<div id="modalLead" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:999;">
+  <div style="background:#111; max-width:400px; margin:10% auto; padding:20px; border:1px solid #3498db;">
+    <h3>Novo Lead Manual</h3>
+
+    <label>Nome</label>
+    <input id="manualNome" style="width:100%; padding:8px; margin-bottom:10px;">
+
+    <label>Telefone</label>
+    <input id="manualTelefone" style="width:100%; padding:8px; margin-bottom:10px;">
+
+    <label>Tipo</label>
+    <select id="manualTipo" style="width:100%; padding:8px; margin-bottom:15px;">
+      <option value="Interesse">Interesse</option>
+      <option value="Visita">Visita</option>
+    </select>
+
+    <div style="display:flex; justify-content:flex-end; gap:10px;">
+      <button onclick="fecharModalLead()" class="btn-secondary">Cancelar</button>
+      <button onclick="salvarLeadManual()" class="btn-secondary">Salvar</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

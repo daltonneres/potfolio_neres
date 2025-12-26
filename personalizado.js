@@ -1,11 +1,33 @@
+// Mostrar / esconder campo "Outro domínio"
+function toggleOutroDominio() {
+  const dominio = document.getElementById("dominio").value;
+  const outroCampo = document.getElementById("outro-dominio");
+
+  if (dominio === "outro") {
+    outroCampo.style.display = "block";
+  } else {
+    outroCampo.style.display = "none";
+    document.getElementById("dominioOutro").value = "";
+  }
+}
+
 document.getElementById("briefingForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
+  // ===== DOMÍNIO =====
+  const dominioSelecionado = document.getElementById("dominio").value;
+  const dominioFinal =
+    dominioSelecionado === "outro"
+      ? document.getElementById("dominioOutro").value
+      : dominioSelecionado;
+
+  // ===== DADOS =====
   const dados = {
     nome: document.getElementById("nome").value,
     email: document.getElementById("email").value,
     whatsapp: document.getElementById("whatsapp").value,
     ramo: document.getElementById("ramo").value,
+    dominio: dominioFinal || "Não informado",
     objetivo: document.getElementById("objetivo").value,
     prazo: document.getElementById("prazo").value,
     orcamento: document.getElementById("orcamento").value
@@ -25,15 +47,12 @@ document.getElementById("briefingForm").addEventListener("submit", function (e) 
 
   Object.entries(dados).forEach(([key, value]) => {
     pdf.text(`${key.toUpperCase()}:`, 20, y);
-    pdf.text(value || "-", 70, y);
+    pdf.text(String(value || "-"), 70, y);
     y += 10;
   });
 
-  // ❌ REMOVIDO:
-  // pdf.save(`Briefing-${dados.nome}.pdf`);
-
   /* ======================
-     ENVIAR EMAIL
+     ENVIAR EMAIL (EmailJS)
   ====================== */
   emailjs.send(
     "service_i3xkta2",
@@ -55,6 +74,7 @@ document.getElementById("briefingForm").addEventListener("submit", function (e) 
 📧 Email: ${dados.email}
 📱 WhatsApp: ${dados.whatsapp}
 🏢 Ramo: ${dados.ramo}
+🌐 Domínio desejado: ${dados.dominio}
 ⏳ Prazo: ${dados.prazo}
 💰 Orçamento: ${dados.orcamento}
 

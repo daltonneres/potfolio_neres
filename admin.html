@@ -73,6 +73,11 @@
   display: block;
 }
 
+.status-sem-retorno {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
     </style>
 </head>
 <body class="admin-body">
@@ -85,6 +90,9 @@
             </a>
             <button onclick="abrirModalLead()" class="btn-secondary" style="padding: 10px 20px;">
   Novo lead (manual)
+</button>
+<button onclick="alternarArquivados()" class="btn-secondary" style="padding: 10px 20px;">
+  Arquivados
 </button>
             <button onclick="logout()" class="btn-secondary" style="padding: 10px 20px;">
                 Sair
@@ -108,11 +116,13 @@
     </table>
 
     <script type="module">
+      let mostrandoArquivados = false;
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
   getFirestore,
   collection,
+  getDoc,
   query,
   orderBy,
   onSnapshot,
@@ -146,54 +156,68 @@ import {
         };
 
         // Carregar Leads em Tempo Real
-const q = query(collection(db, "leads"), orderBy("dataCriacao", "desc"));
+const getQuery = () => {
+  return mostrandoArquivados
+    ? query(collection(db, "leads_arquivados"), orderBy("dataCriacao", "desc"))
+    : query(collection(db, "leads"), orderBy("dataCriacao", "desc"));
+};
 
-onSnapshot(q, (snapshot) => {
-  const tbody = document.querySelector("#tabelaLeads tbody");
-  tbody.innerHTML = "";
+let unsubscribe;
 
-  snapshot.forEach((docSnap) => {
-    const lead = docSnap.data();
-    const id = docSnap.id;
+const carregarLeads = () => {
+  if (unsubscribe) unsubscribe();
 
-    const data = lead.dataCriacao?.toDate().toLocaleString("pt-BR") || "Aguardando...";
-    const classeBadge = lead.tipo === "Interesse" ? "badge-interesse" : "badge-visita";
+  unsubscribe = onSnapshot(getQuery(), (snapshot) => {
+    const tbody = document.querySelector("#tabelaLeads tbody");
+    tbody.innerHTML = "";
 
-    const situacao = lead.situacao || "Novo";
-    let classeSituacao = "status-novo";
-    if (situacao === "Em contato") classeSituacao = "status-contato";
-    if (situacao === "Concluído") classeSituacao = "status-concluido";
+    snapshot.forEach((docSnap) => {
+      const lead = docSnap.data();
+      const id = docSnap.id;
 
-    tbody.innerHTML += `
-      <tr>
-        <td>${data}</td>
-        <td>${lead.nome}</td>
-        <td><span class="badge ${classeBadge}">${lead.tipo}</span></td>
-        <td>${lead.telefone || "---"}</td>
-        <td class="${classeSituacao}">${situacao}</td>
-        <td>
-          <div class="dropdown">
-            <button class="dropdown-btn">Ações</button>
-            <div class="dropdown-content">
-              <button onclick="chamarWhats('${lead.telefone}', '${lead.nome}', '${id}')">
-                Chamar no WhatsApp
-              </button>
-              <button onclick="marcarContato('${id}')">
-                Marcar como Em contato
-              </button>
-              <button onclick="concluirLead('${id}')">
-                Marcar como Concluído
-              </button>
-              <button onclick="excluirLead('${id}')">
-                Excluir atendimento
-              </button>
+      const data = lead.dataCriacao?.toDate().toLocaleString("pt-BR") || "Aguardando...";
+      const classeBadge = lead.tipo === "Interesse" ? "badge-interesse" : "badge-visita";
+
+      const situacao = lead.situacao || "Novo";
+      let classeSituacao = "status-novo";
+      if (situacao === "Em contato") classeSituacao = "status-contato";
+      if (situacao === "Concluído") classeSituacao = "status-concluido";
+      if (situacao === "Concluído sem retorno") classeSituacao = "status-sem-retorno";
+
+      tbody.innerHTML += `
+        <tr>
+          <td>${data}</td>
+          <td>${lead.nome}</td>
+          <td><span class="badge ${classeBadge}">${lead.tipo}</span></td>
+          <td>${lead.telefone || "---"}</td>
+          <td class="${classeSituacao}">${situacao}</td>
+          <td>
+            <div class="dropdown">
+              <button class="dropdown-btn">Ações</button>
+              <div class="dropdown-content">
+                ${!mostrandoArquivados ? `
+                  <button onclick="chamarWhats('${lead.telefone}', '${lead.nome}', '${id}')">
+                    Chamar no WhatsApp
+                  </button>
+                  <button onclick="marcarContato('${id}')">Marcar como Em contato</button>
+                  <button onclick="concluirLead('${id}')">Marcar como Concluído</button>
+                  <button onclick="concluirSemRetorno('${id}')">Concluído sem retorno</button>
+                ` : `
+                  <button onclick="restaurarLead('${id}')">Restaurar atendimento</button>
+                `}
+                <button onclick="excluirLead('${id}', ${mostrandoArquivados})">
+                  Excluir definitivamente
+                </button>
+              </div>
             </div>
-          </div>
-        </td>
-      </tr>
-    `;
+          </td>
+        </tr>
+      `;
+    });
   });
-});
+};
+
+carregarLeads();
 
 // WhatsApp
 window.chamarWhats = (telefone, nome, id) => {
@@ -254,6 +278,52 @@ window.salvarLeadManual = async () => {
   document.getElementById("manualNome").value = "";
   document.getElementById("manualTelefone").value = "";
 };
+
+// 🔴 Arquivar lead (Concluído sem retorno)
+window.concluirSemRetorno = async (id) => {
+  const ref = doc(db, "leads", id);
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) return;
+
+  // Salva nos arquivados
+  await addDoc(collection(db, "leads_arquivados"), {
+    ...snap.data(),
+    situacao: "Concluído sem retorno",
+    dataArquivamento: serverTimestamp()
+  });
+
+  // Remove da lista principal
+  await deleteDoc(ref);
+
+  // Atualiza a tela
+  carregarLeads();
+};
+// 🔁 Alternar visualização
+window.alternarArquivados = () => {
+  mostrandoArquivados = !mostrandoArquivados;
+  carregarLeads();
+};
+
+// ♻ Restaurar lead arquivado
+window.restaurarLead = async (id) => {
+  const ref = doc(db, "leads_arquivados", id);
+  const snap = await getDoc(ref);
+
+  if (!snap.exists()) return;
+
+  await addDoc(collection(db, "leads"), {
+    ...snap.data(),
+    situacao: "Novo",
+    dataCriacao: serverTimestamp()
+  });
+
+  await deleteDoc(ref);
+
+  carregarLeads();
+};
+
+
 </script>
 
 <!-- Rodapé -->

@@ -19,7 +19,15 @@
 <body class="admin-body">
     <div class="header-admin">
         <h1>Leads do Portfólio</h1>
-        <button onclick="logout()" class="btn-secondary" style="padding: 10px 20px;">Sair</button>
+
+        <div style="display: flex; gap: 10px;">
+            <a href="index.html" class="btn-secondary" style="padding: 10px 20px; text-decoration: none;">
+                Início
+            </a>
+            <button onclick="logout()" class="btn-secondary" style="padding: 10px 20px;">
+                Sair
+            </button>
+        </div>
     </div>
 
     <table id="tabelaLeads">
@@ -84,5 +92,22 @@
             });
         });
     </script>
+
+<!-- Rodapé -->
+<footer class="footer">
+  <p class="rodape-final">
+    © <span id="anoAtual"></span> Desenvolvido por
+    <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
+      Dalton Neres - Full Stack Developer
+    </a>
+    <br>
+    Todos os direitos reservados.
+  </p>
+</footer>
+
+<script>
+  document.getElementById("anoAtual").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

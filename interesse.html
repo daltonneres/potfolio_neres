@@ -34,21 +34,29 @@
       </p>
     </section>
 
-    <!-- FORM -->
-    <section class="interest-form">
-      <label for="ramo">Qual é o seu ramo?</label>
+<!-- FORM -->
+<section class="interest-form">
+  <label for="ramo">Qual é o seu ramo?</label>
 
-<select id="ramo" onchange="filtrarPorRamo()">
-  <option value="">Selecione uma opção</option>
-  <option value="todos">Quero ver todos os projetos</option>
-  <option value="clinica">Clínica / Saúde</option>
-  <option value="restaurante">Restaurante / Alimentação</option>
-  <option value="empresa">Empresa / Serviços</option>
-  <option value="educacao">Educação</option>
-  <option value="ecommerce">E-commerce</option>
-  <option value="personalizado">Quero um projeto personalizado</option>
-</select>
-    </section>
+  <select id="ramo" onchange="filtrarPorRamo()">
+    <option value="">Selecione uma opção</option>
+
+    <option value="todos">Quero ver todos os projetos</option>
+
+    <option value="design">Design Gráfico</option>
+
+    <option value="clinica">Clínica / Saúde</option>
+    <option value="restaurante">Restaurante / Alimentação</option>
+    <option value="imobiliaria">Imobiliária</option>
+    <option value="veiculos">Marketplace / Veículos</option>
+
+    <option value="empresa">Empresa / Serviços</option>
+    <option value="educacao">Educação</option>
+    <option value="ecommerce">E-commerce</option>
+
+    <option value="personalizado">Quero um projeto personalizado</option>
+  </select>
+</section>
 
 <!-- PROJETOS -->
 <section class="interest-projects" id="interestProjects">
@@ -129,6 +137,64 @@
     <p>Modelo genérico de loja virtual para apresentação.</p>
     <small>Projeto demonstrativo</small>
   </div>
+
+  <!-- DESIGN GRÁFICO -->
+<div class="interest-card hidden" data-ramo="design">
+  <h3>Artes Promocionais & Campanhas</h3>
+  <p>
+    Criação de artes para redes sociais, campanhas promocionais,
+    datas comemorativas e divulgação de serviços.
+  </p>
+  <small>Projeto real</small>
+</div>
+
+<div class="interest-card hidden" data-ramo="design">
+  <h3>Identidade Visual</h3>
+  <p>
+    Desenvolvimento de identidade visual com foco em branding,
+    cores, tipografia e posicionamento de marca.
+  </p>
+  <small>Projeto demonstrativo</small>
+</div>
+
+<!-- IMOBILIÁRIA -->
+<div class="interest-card hidden" data-ramo="imobiliaria">
+  <h3>Sistema para Imobiliárias</h3>
+  <p>
+    Plataforma para cadastro de imóveis, clientes e leads,
+    com integração ao WhatsApp.
+  </p>
+  <small>Projeto em desenvolvimento</small>
+</div>
+
+<div class="interest-card hidden" data-ramo="imobiliaria">
+  <h3>Site Imobiliário Profissional</h3>
+  <p>
+    Site institucional para imobiliárias com vitrine de imóveis
+    e filtros inteligentes.
+  </p>
+  <small>Projeto demonstrativo</small>
+</div>
+
+<!-- MARKETPLACE / VEÍCULOS -->
+<div class="interest-card hidden" data-ramo="veiculos">
+  <h3>Marketplace de Carros</h3>
+  <p>
+    Plataforma de compra e venda de veículos com anúncios,
+    filtros avançados e painel administrativo.
+  </p>
+  <small>Projeto em desenvolvimento</small>
+</div>
+
+<div class="interest-card hidden" data-ramo="veiculos">
+  <h3>Catálogo Digital de Veículos</h3>
+  <p>
+    Catálogo online para concessionárias com visual moderno
+    e contato direto via WhatsApp.
+  </p>
+  <small>Projeto demonstrativo</small>
+</div>
+
 
 </section>
 

@@ -13,6 +13,7 @@
   </head>
 
   <body>
+
     <nav>
       <ul>
         <li><a href="index.html">Início</a></li>
@@ -85,13 +86,18 @@
 <!-- Rodapé -->
 <footer class="footer">
   <p class="rodape-final">
-    Desenvolvido por
+    © <span id="anoAtual"></span> Desenvolvido por
     <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
       Dalton Neres - Full Stack Developer
     </a>
     <br>
+    Todos os direitos reservados.
   </p>
 </footer>
+
+<script>
+  document.getElementById("anoAtual").textContent = new Date().getFullYear();
+</script>
 
     <script src="script.js"></script>
   </body>

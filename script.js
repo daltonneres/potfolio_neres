@@ -1,29 +1,3 @@
-/* ==========================
-   TEXTO DINÂMICO
-========================== */
-const frases = [
-  "Soluções Full Stack eficientes.",
-  "Experiências digitais modernas.",
-  "Tecnologia que gera resultados.",
-  "Código com propósito e desempenho."
-];
-
-let fraseAtual = 0;
-const elemento = document.getElementById("text-dinamico");
-
-if (elemento) {
-  function trocarFrase() {
-    elemento.style.opacity = 0;
-    setTimeout(() => {
-      elemento.textContent = frases[fraseAtual];
-      elemento.style.opacity = 1;
-      fraseAtual = (fraseAtual + 1) % frases.length;
-    }, 600);
-  }
-
-  trocarFrase();
-  setInterval(trocarFrase, 5000);
-}
 
 /* ==========================
    FADE-IN GERAL

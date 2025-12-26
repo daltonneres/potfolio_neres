@@ -12,7 +12,7 @@ document.getElementById("briefingForm").addEventListener("submit", function (e) 
   };
 
   /* ======================
-     GERAR PDF
+     GERAR PDF (SEM DOWNLOAD)
   ====================== */
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF();
@@ -29,7 +29,8 @@ document.getElementById("briefingForm").addEventListener("submit", function (e) 
     y += 10;
   });
 
-  pdf.save(`Briefing-${dados.nome}.pdf`);
+  // ❌ REMOVIDO:
+  // pdf.save(`Briefing-${dados.nome}.pdf`);
 
   /* ======================
      ENVIAR EMAIL

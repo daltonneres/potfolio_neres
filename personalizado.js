@@ -33,6 +33,12 @@ document.getElementById("briefingForm").addEventListener("submit", function (e) 
     orcamento: document.getElementById("orcamento").value
   };
 
+  let tipoProjetoExtra = "";
+
+if (dados.ramo.toLowerCase().includes("landing")) {
+  tipoProjetoExtra = "\n🚀 Tipo: Landing Page focada em conversão";
+}
+
   /* ======================
      GERAR PDF (SEM DOWNLOAD)
   ====================== */
@@ -67,20 +73,20 @@ document.getElementById("briefingForm").addEventListener("submit", function (e) 
   /* ======================
      WHATSAPP
   ====================== */
-  const mensagem = `
+const mensagem = `
 📌 NOVO BRIEFING RECEBIDO
 
 👤 Nome: ${dados.nome}
 📧 Email: ${dados.email}
 📱 WhatsApp: ${dados.whatsapp}
-🏢 Ramo: ${dados.ramo}
+🏢 Ramo: ${dados.ramo}${tipoProjetoExtra}
 🌐 Domínio desejado: ${dados.dominio}
 ⏳ Prazo: ${dados.prazo}
 💰 Orçamento: ${dados.orcamento}
 
 🎯 Objetivo:
 ${dados.objetivo}
-  `;
+`;
 
   const texto = encodeURIComponent(mensagem);
   window.open(`https://wa.me/5546999711937?text=${texto}`, "_blank");

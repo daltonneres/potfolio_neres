@@ -50,6 +50,7 @@
 <select id="ramo" required>
   <option value="">Selecione</option>
   <option>Landing Page (vendas ou captação)</option>
+  <option>Sistema Web</option>
   <option>Clínica / Saúde</option>
   <option>Restaurante / Alimentação</option>
   <option>Empresa / Serviços</option>
@@ -59,7 +60,16 @@
 
       <label>O que você precisa?</label>
 <textarea id="objetivo" rows="4" required
-  placeholder="Ex: landing page de vendas, página para tráfego pago, site institucional, sistema de agendamento, cardápio digital..."></textarea>
+  placeholder="Ex: sistema de agendamento, sistema de captação de leads, landing page de vendas, site institucional, painel administrativo..."></textarea>
+
+  <label>Se for um sistema, qual tipo?</label>
+<select id="tipoSistema">
+  <option value="">Não se aplica</option>
+  <option>Sistema de Agendamentos</option>
+  <option>Sistema de Captação de Leads</option>
+  <option>Sistema Administrativo / Painel</option>
+  <option>Sistema Personalizado</option>
+</select>
 
       <label>Prazo ideal</label>
       <select id="prazo">

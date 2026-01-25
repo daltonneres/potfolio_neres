@@ -1,159 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Desenvolvedor Full Stack com foco em acessibilidade, automação e soluções digitais modernas. Conheça Dalton Neres.">
-    <meta name="keywords" content="Dalton Neres, Desenvolvedor, Full Stack, Acessibilidade, Programação, Tecnologia, Web, Software, Site, App">
-    <meta name="author" content="Dalton Neres">
-    <meta name="robots" content="index, follow">
-    <title>Contato | Dalton Neres</title>
-    <link rel="icon" href="favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Entre em contato com Dalton Neres. Desenvolvedor Full Stack focado em soluções digitais, acessibilidade e projetos com resultado real.">
+  <meta name="keywords" content="Contato Dalton Neres, Desenvolvedor Full Stack, Projetos Web, Sistemas, Automação">
+  <meta name="author" content="Dalton Neres">
+  <meta name="robots" content="index, follow">
+
+  <title>Contato | Dalton Neres</title>
+
+  <link rel="icon" href="favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+</head>
 
 <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="projetos.html">Projetos</a></li>
-      <li><a href="servicos.html">Serviços</a></li>
-      <li><a href="resultados.html">Feedback's</a></li>
-      <li><a href="contato.html" class="ativo">Contato</a></li>
-    </ul>
-  </nav>
 
-  <!-- Acessibilidade -->
-  <div class="acessibilidade-container">
-    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
-    <div class="acessibilidade-menu" id="acessibilidadeMenu" style="display: none;">
-      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
-      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
-      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
-    </div>
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="projetos.html">Projetos</a></li>
+    <li><a href="servicos.html">Serviços</a></li>
+    <li><a href="resultados.html">Feedback's</a></li>
+    <li><a href="contato.html" class="ativo">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- ACESSIBILIDADE -->
+<div class="acessibilidade-container">
+  <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
+  <div class="acessibilidade-menu" id="acessibilidadeMenu" style="display:none;">
+    <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
+    <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
+    <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
   </div>
+</div>
 
+<!-- HERO -->
 <section class="fade-in contato-hero">
 
-  <h2>Tem um projeto em mente?</h2>
+  <h2>Vamos falar sobre o seu projeto</h2>
+
   <p>
-    Em vez de uma mensagem genérica, prefiro entender exatamente
-    o que você precisa para entregar a melhor solução possível.
+    Não acredito em mensagens genéricas nem soluções prontas.
+    <br>
+    Para entregar algo que realmente funcione,
+    preciso entender seu objetivo, seu público
+    e o momento do seu negócio.
   </p>
 
   <div class="contato-acoes">
-
     <a href="personalizado.html" class="btn btn-destaque">
       🚀 Criar projeto personalizado
     </a>
 
     <a href="https://wa.me/5546999711937" target="_blank" class="btn btn-secundario">
-      💬 Falar direto no WhatsApp
+      💬 Conversar antes de decidir
     </a>
-
   </div>
 
   <p class="contato-observacao">
-    📌 O briefing leva menos de 2 minutos e ajuda a acelerar o atendimento.
+    ⚡ Projetos focados em resultado, acessibilidade e crescimento real.
   </p>
 
 </section>
 
-<!-- Contatos -->
+<!-- FLUXO -->
+<section class="fade-in contato-fluxo">
+
+  <h3>Como funciona o contato</h3>
+
+  <div class="fluxo-grid">
+
+    <div class="fluxo-card">
+      <strong>1.</strong>
+      <p>Você preenche um briefing rápido (leva cerca de 2 minutos).</p>
+    </div>
+
+    <div class="fluxo-card">
+      <strong>2.</strong>
+      <p>Eu analiso suas respostas e retorno com direcionamento claro.</p>
+    </div>
+
+    <div class="fluxo-card">
+      <strong>3.</strong>
+      <p>Se fizer sentido, seguimos com o projeto de forma transparente.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTATOS -->
 <section class="fade-in contatos">
-  <h2>🌐 Redes de Contato</h2>
+
+  <h2>Escolha como prefere falar comigo</h2>
+
   <div class="social-buttons">
-<!-- Link de e-mail universal -->
-<a id="email-link" href="dev.neresdalton@gmail.com" title="Enviar e-mail para Dalton Neres">
-  <img src="imgs/gmail.png" alt="Enviar e-mail para Dalton Neres">
-</a>
 
-<script>
-  const email = "dev.neresdalton@gmail.com";
-  const subject = "Contato via site";
-  const body = "Olá Dalton, gostaria de falar sobre...";
-  
-  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  const gmailWebLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  document.getElementById("email-link").addEventListener("click", function(e) {
-    // Tenta abrir o mailto primeiro
-    window.location.href = mailtoLink;
-
-    // Após 500ms, tenta abrir o Gmail web (fallback)
-    setTimeout(() => {
-      window.open(gmailWebLink, "_blank");
-    }, 500);
-
-    e.preventDefault();
-  });
-</script>
+    <!-- EMAIL -->
+    <a id="email-link" href="mailto:dev.neresdalton@gmail.com" title="Contato por e-mail">
+      <img src="imgs/gmail.png" alt="E-mail">
+      <span>E-mail (mais detalhado)</span>
+    </a>
 
     <!-- WhatsApp -->
     <a href="https://wa.me/5546999711937" target="_blank" title="Conversar no WhatsApp">
-  <img src="imgs/whatsapp.png" alt="WhatsApp" title="WhatsApp">
+      <img src="imgs/whatsapp.png" alt="WhatsApp">
+      <span>WhatsApp (resposta rápida)</span>
     </a>
 
     <!-- Instagram -->
-    <a href="https://instagram.com/dalton_neres" target="_blank" title="Visitar Instagram">
-  <img src="imgs/instagram.png" alt="Instagram" title="Instagram">
+    <a href="https://instagram.com/dalton_neres" target="_blank" title="Instagram">
+      <img src="imgs/instagram.png" alt="Instagram">
+      <span>Acompanhar meu trabalho</span>
     </a>
 
     <!-- GitHub -->
-    <a href="https://github.com/daltonneres" target="_blank" title="Visitar GitHub">
-  <img src="imgs/github.png" alt="GitHub" title="GitHub">
+    <a href="https://github.com/daltonneres" target="_blank" title="GitHub">
+      <img src="imgs/github.png" alt="GitHub">
+      <span>Ver meus projetos</span>
     </a>
 
-        <!-- Instagram -->
-    <a href="login.html" target="_blank" title="Acesso Administrativo">
-  <img src="imgs/cadeado.png" alt="Administrativo" title="Instagram">
+    <!-- ADMIN -->
+    <a href="login.html" target="_blank" title="Área administrativa">
+      <img src="imgs/cadeado.png" alt="Administrativo">
+      <span>Área administrativa</span>
     </a>
+
   </div>
+
 </section>
 
-  <div class="btn-container">
-    <a href="index.html" class="btn">Voltar para o Início</a>
-  </div>
+<!-- CTA FINAL -->
+<section class="fade-in contato-final">
 
-  <!-- Scripts -->
-  <script>
-    // --- Acessibilidade ---
-    let tamanhoFonteAtual = 100;
-    let contrasteAtivo = false;
+  <h3>Se você procura alguém realmente envolvido</h3>
 
-    function ajustarFonte(acao) {
-      if (acao === 'aumentar') {
-        tamanhoFonteAtual += 10;
-      } else if (acao === 'diminuir') {
-        tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
-      }
-      document.body.style.fontSize = `${tamanhoFonteAtual}%`;
-    }
+  <p>
+    Que acompanha o projeto de perto, orienta decisões
+    e entrega soluções pensadas para o seu objetivo,
+    então podemos trabalhar juntos.
+  </p>
 
-    function toggleContraste() {
-      contrasteAtivo = !contrasteAtivo;
-      document.body.classList.toggle('alto-contraste', contrasteAtivo);
-    }
+  <a href="personalizado.html" class="btn btn-destaque">
+    🚀 Iniciar projeto agora
+  </a>
 
-    function toggleAcessibilidade() {
-      const menu = document.getElementById("acessibilidadeMenu");
-      menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "flex" : "none";
-    }
-  </script>
+</section>
 
-<!-- Rodapé -->
+<div class="btn-container">
+  <a href="index.html" class="btn">Voltar para o Início</a>
+</div>
+
+<!-- SCRIPTS ACESSIBILIDADE -->
+<script>
+  let tamanhoFonteAtual = 100;
+  let contrasteAtivo = false;
+
+  function ajustarFonte(acao) {
+    if (acao === 'aumentar') tamanhoFonteAtual += 10;
+    if (acao === 'diminuir') tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
+    document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+  }
+
+  function toggleContraste() {
+    contrasteAtivo = !contrasteAtivo;
+    document.body.classList.toggle('alto-contraste', contrasteAtivo);
+  }
+
+  function toggleAcessibilidade() {
+    const menu = document.getElementById("acessibilidadeMenu");
+    menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "flex" : "none";
+  }
+</script>
+
+<!-- RODAPÉ -->
 <footer class="footer">
   <p class="rodape-final">
     Desenvolvido por
-    <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
+    <a href="https://github.com/daltonneres" target="_blank" style="color:#fff; text-decoration:none;">
       Dalton Neres - Full Stack Developer
     </a>
-    <br>
   </p>
 </footer>
 
 <script type="module" src="script.js"></script>
 </body>
-
 </html>

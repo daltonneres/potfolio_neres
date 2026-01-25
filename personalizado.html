@@ -5,11 +5,8 @@
   <title>Projeto Personalizado | Dalton Neres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Solicite um projeto personalizado sob medida para o seu negócio.">
-    <link rel="icon" href="favicon.svg" type="image/x-icon">
+  <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
-
-  <!-- jsPDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -24,117 +21,110 @@
 
 <main class="interest-page fade-in">
 
-  <!-- INTRO -->
-  <section class="interest-intro">
-    <h1>Projeto Personalizado</h1>
-    <p>
-      Responda algumas perguntas rápidas e receba uma solução
-      pensada exclusivamente para o seu negócio.
-    </p>
-  </section>
+<section class="interest-intro">
+  <h1>Projeto Personalizado</h1>
+  <p>Responda rápido e receba uma proposta sob medida.</p>
+</section>
 
-  <!-- FORM -->
-  <section class="interest-form">
-    <form id="briefingForm">
+<section class="interest-form">
+<form id="briefingForm">
 
-      <label>Nome completo</label>
-      <input type="text" id="nome" required>
+<label>Nome completo</label>
+<input type="text" id="nome" required>
 
-      <label>E-mail</label>
-      <input type="email" id="email" required>
+<label>E-mail</label>
+<input type="email" id="email" required>
 
-      <label>WhatsApp</label>
-      <input type="tel" id="whatsapp" placeholder="(46) 99999-9999" required>
+<label>WhatsApp</label>
+<input type="tel" id="whatsapp" required>
 
 <label>Tipo de negócio</label>
-<select id="ramo" required>
+<select id="ramo" required onchange="toggleSistema()">
   <option value="">Selecione</option>
-  <option>Landing Page (vendas ou captação)</option>
+  <option>Landing Page</option>
   <option>Sistema Web</option>
   <option>Clínica / Saúde</option>
-  <option>Restaurante / Alimentação</option>
+  <option>Restaurante</option>
   <option>Empresa / Serviços</option>
-  <option>Games / Experiências Interativas</option>
-  <option>Educação</option>
   <option>E-commerce</option>
 </select>
 
-      <label>O que você precisa?</label>
-<textarea id="objetivo" rows="4" required
-  placeholder="Ex: sistema de agendamento, sistema de captação de leads, landing page de vendas, site institucional, painel administrativo..."></textarea>
-
-  <label>Se for um sistema, qual tipo?</label>
+<div id="sistema-box" style="display:none;">
+<label>Tipo de sistema</label>
 <select id="tipoSistema">
-  <option value="">Não se aplica</option>
-  <option>Sistema de Agendamentos</option>
-  <option>Sistema de Captação de Leads</option>
-  <option>Sistema Administrativo / Painel</option>
-  <option>Sistema Personalizado</option>
+  <option>Sistema de Agendamento</option>
+  <option>Captação de Leads</option>
+  <option>Painel Administrativo</option>
+  <option>Personalizado</option>
+</select>
+</div>
+
+<label>O que você precisa?</label>
+<textarea id="objetivo" rows="3" required></textarea>
+
+<label>Objetivo do projeto</label>
+<select id="objetivoNegocio">
+  <option>Vender mais</option>
+  <option>Captar clientes</option>
+  <option>Organizar processos</option>
+  <option>Divulgar empresa</option>
 </select>
 
-      <label>Prazo ideal</label>
-      <select id="prazo">
-        <option>Sem urgência</option>
-        <option>Até 15 dias</option>
-        <option>Até 30 dias</option>
-        <option>Mais de 30 dias</option>
-      </select>
+<label>Tem alguma referência?</label>
+<textarea id="referencia" rows="2" placeholder="Links ou exemplos que você gosta"></textarea>
 
-      <label>Orçamento estimado</label>
-      <select id="orcamento">
-        <option>A definir</option>
-        <option>Até R$ 1.000</option>
-        <option>R$ 1.000 – R$ 3.000</option>
-        <option>R$ 3.000+</option>
-      </select>
+<label>Esse projeto é prioridade?</label>
+<select id="prioridade">
+  <option>Quero começar o quanto antes</option>
+  <option>Posso aguardar um pouco</option>
+  <option>Só estou orçando</option>
+</select>
 
-      <label>Domínio desejado</label>
-<select id="dominio" required onchange="toggleOutroDominio()">
+<label>Se der certo, o que muda no seu negócio?</label>
+<textarea id="impacto" rows="2"></textarea>
+
+<label>Prazo ideal</label>
+<select id="prazo">
+  <option>Sem urgência</option>
+  <option>Até 15 dias</option>
+  <option>Até 30 dias</option>
+  <option>Mais de 30 dias</option>
+</select>
+
+<label>Orçamento estimado</label>
+<select id="orcamento">
+  <option>A definir</option>
+  <option>Até R$ 1.000</option>
+  <option>R$ 1.000 – R$ 3.000</option>
+  <option>R$ 3.000+</option>
+</select>
+
+<label>Domínio desejado</label>
+<select id="dominio" onchange="toggleOutroDominio()" required>
   <option value="">Selecione</option>
-  <option value=".com.br">.com.br</option>
-  <option value=".com">.com</option>
-  <option value=".online">.online</option>
-  <option value=".shop">.shop</option>
+  <option>.com.br</option>
+  <option>.com</option>
+  <option>.online</option>
+  <option>.shop</option>
   <option value="outro">Outro</option>
 </select>
 
-<div id="outro-dominio" style="display: none;">
-  <label>Informe o domínio desejado</label>
-  <input type="text" id="dominioOutro" placeholder="Ex: .tech, .digital, .site">
+<div id="outro-dominio" style="display:none;">
+<input type="text" id="dominioOutro" placeholder="Ex: .tech">
 </div>
 
-      <button type="submit" class="btn">
-        🚀 Enviar briefing
-      </button>
+<p class="form-note">📩 Resposta em até 24h — sem compromisso.</p>
 
-    </form>
-  </section>
+<button class="btn">🚀 Enviar briefing</button>
 
+</form>
+</section>
 </main>
 
 <footer class="footer">
-  <p>
-    Desenvolvido por
-    <a href="https://github.com/daltonneres" target="_blank">
-      Dalton Neres - Full Stack Developer
-    </a>
-  </p>
+<p>Desenvolvido por Dalton Neres</p>
 </footer>
 
 <script src="personalizado.js"></script>
-
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("_jL2J3QMOfA5ULepx");
-  })();
-</script>
-
-<!-- jsPDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script src="personalizado.js"></script>
-
 </body>
 </html>

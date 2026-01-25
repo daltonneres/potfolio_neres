@@ -1,85 +1,67 @@
-// Mostrar / esconder campo "Outro domínio"
 function toggleOutroDominio() {
   const dominio = document.getElementById("dominio").value;
-  const outroCampo = document.getElementById("outro-dominio");
-
-  if (dominio === "outro") {
-    outroCampo.style.display = "block";
-  } else {
-    outroCampo.style.display = "none";
-    document.getElementById("dominioOutro").value = "";
-  }
+  document.getElementById("outro-dominio").style.display =
+    dominio === "outro" ? "block" : "none";
 }
 
-document.getElementById("briefingForm").addEventListener("submit", function (e) {
+function toggleSistema() {
+  const ramo = document.getElementById("ramo").value;
+  document.getElementById("sistema-box").style.display =
+    ramo === "Sistema Web" ? "block" : "none";
+}
+
+document.getElementById("briefingForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  // ===== DOMÍNIO =====
-  const dominioSelecionado = document.getElementById("dominio").value;
-  const dominioFinal =
-    dominioSelecionado === "outro"
+  const dominio =
+    document.getElementById("dominio").value === "outro"
       ? document.getElementById("dominioOutro").value
-      : dominioSelecionado;
+      : document.getElementById("dominio").value;
 
-      // ===== TIPO DE SISTEMA =====
-const tipoSistema =
-  document.getElementById("tipoSistema")?.value || "Não se aplica";
+  const dados = {
+    nome: nome.value,
+    email: email.value,
+    whatsapp: whatsapp.value,
+    ramo: ramo.value,
+    tipoSistema: tipoSistema?.value || "Não se aplica",
+    objetivo: objetivo.value,
+    objetivoNegocio: objetivoNegocio.value,
+    referencia: referencia.value || "Nenhuma",
+    prioridade: prioridade.value,
+    impacto: impacto.value || "Não informado",
+    prazo: prazo.value,
+    orcamento: orcamento.value,
+    dominio: dominio
+  };
 
-  // ===== DADOS =====
-const dados = {
-  nome: document.getElementById("nome").value,
-  email: document.getElementById("email").value,
-  whatsapp: document.getElementById("whatsapp").value,
-  ramo: document.getElementById("ramo").value,
-  tipoSistema: tipoSistema,
-  dominio: dominioFinal || "Não informado",
-  objetivo: document.getElementById("objetivo").value,
-  prazo: document.getElementById("prazo").value,
-  orcamento: document.getElementById("orcamento").value
-};
+  const mensagem = `
+📌 NOVO BRIEFING
 
-  let tipoProjetoExtra = "";
+👤 ${dados.nome}
+📱 ${dados.whatsapp}
+📧 ${dados.email}
 
-if (dados.ramo.toLowerCase().includes("landing")) {
-  tipoProjetoExtra = "\n🚀 Tipo: Landing Page focada em conversão";
-}
+🏢 Projeto: ${dados.ramo}
+🖥 Sistema: ${dados.tipoSistema}
 
-  /* ======================
-     ENVIAR EMAIL (EmailJS)
-  ====================== */
-  emailjs.send(
-    "service_i3xkta2",
-    "template_m2fzjyz",
-    dados
-  ).then(() => {
-    console.log("✅ Email enviado com sucesso");
-  }).catch((error) => {
-    console.error("❌ Erro ao enviar email:", error);
-  });
+🎯 Objetivo: ${dados.objetivo}
+📈 Meta: ${dados.objetivoNegocio}
 
-  /* ======================
-     WHATSAPP
-  ====================== */
-const mensagem = ` 
-📌 NOVO BRIEFING RECEBIDO
+⭐ Referência: ${dados.referencia}
+🔥 Prioridade: ${dados.prioridade}
 
-👤 Nome: ${dados.nome}
-📧 Email: ${dados.email}
-📱 WhatsApp: ${dados.whatsapp}
+🚀 Impacto esperado:
+${dados.impacto}
 
-🏢 Tipo de projeto: ${dados.ramo}
-🖥️ Tipo de sistema: ${dados.tipoSistema}
-
-🌐 Domínio desejado: ${dados.dominio}
+🌐 Domínio: ${dados.dominio}
 ⏳ Prazo: ${dados.prazo}
 💰 Orçamento: ${dados.orcamento}
-
-🎯 Objetivo:
-${dados.objetivo}
 `;
 
-  const texto = encodeURIComponent(mensagem);
-  window.open(`https://wa.me/5546999711937?text=${texto}`, "_blank");
+  window.open(
+    `https://wa.me/5546999711937?text=${encodeURIComponent(mensagem)}`,
+    "_blank"
+  );
 
-  alert("🚀 Briefing enviado com sucesso! Em breve entraremos em contato.");
+  alert("Briefing enviado com sucesso!");
 });

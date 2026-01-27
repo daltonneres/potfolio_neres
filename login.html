@@ -1,90 +1,242 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Login Admin - Controle de Leads</title>
-    <link rel="icon" href="favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .login-container {
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 40px;
-            background: #111;
-            border: 1px solid #3498db;
-            border-radius: 15px;
-            text-align: center;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            background: #222;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 5px;
-        }
-        .btn-login {
-            width: 100%;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Login Admin - Controle de Leads</title>
+  <link rel="icon" href="favicon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .login-container {
+      max-width: 420px;
+      margin: 100px auto;
+      padding: 40px;
+      background: #111;
+      border: 1px solid #3498db;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: #222;
+      border: 1px solid #333;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .btn-login {
+      width: 100%;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .forgot {
+      margin-top: 15px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #3498db;
+    }
+
+    .info-box {
+      margin-top: 25px;
+      padding: 15px;
+      background: #0c0c0c;
+      border: 1px dashed #333;
+      border-radius: 10px;
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    .info-box a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: 1px solid #3498db;
+      border-radius: 8px;
+      color: #3498db;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .info-box a:hover {
+      background: #3498db;
+      color: #000;
+    }
+
+    /* MODAL */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal {
+      background: #111;
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #3498db;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .modal p {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .cancel {
+      margin-top: 15px;
+      font-size: 13px;
+      cursor: pointer;
+      color: #777;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="login-container">
-        <h2>Painel Administrativo</h2>
-        <p style="color: #888; margin-bottom: 20px;">Acesso restrito para consulta de leads</p>
-        <input type="email" id="email" placeholder="Seu e-mail">
-        <input type="password" id="password" placeholder="Sua senha">
-        <button id="btnLogin" class="popup-btn btn-login">Entrar</button>
+
+  <div class="login-container">
+    <h2>Painel Administrativo</h2>
+    <p style="color:#888; margin-bottom:20px;">
+      Acesso restrito para consulta e gestão de leads
+    </p>
+
+    <input type="email" id="email" placeholder="Seu e-mail">
+    <input type="password" id="password" placeholder="Sua senha">
+
+    <button id="btnLogin" class="popup-btn btn-login">Entrar</button>
+
+    <p id="forgotPassword" class="forgot">Esqueci minha senha</p>
+
+    <!-- INFO VISITA + LGPD + DEMO -->
+    <div class="info-box">
+      🔎 Este ambiente pode registrar informações de acesso para fins de segurança e auditoria.
+      <br><br>
+      🔐 Os dados são tratados conforme a
+      <strong>Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)</strong>.
+      <br><br>
+      🚀 Quer ver o sistema funcionando?
+      <br>
+      <a href="https://daltonneres.github.io/leadsgest-o/" target="_blank">
+        Acessar site demo de leads
+      </a>
     </div>
+  </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  <!-- MODAL ESQUECI SENHA -->
+  <div id="forgotModal" class="modal-bg">
+    <div class="modal">
+      <h3>Recuperação de Acesso</h3>
+      <p>Informe seu e-mail e a nova senha desejada.</p>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyD-7iM7QKN8bKYY8CLm4df8wbyA1qvUZxw",
-            authDomain: "leadsportfolio-c4815.firebaseapp.com",
-            projectId: "leadsportfolio-c4815",
-            storageBucket: "leadsportfolio-c4815.firebasestorage.app",
-            messagingSenderId: "293134787082",
-            appId: "1:293134787082:web:73d7343134325733f2b5f3"
-        };
+      <input type="email" id="recoverEmail" placeholder="Seu e-mail">
+      <input type="password" id="recoverPassword" placeholder="Nova senha">
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+      <button id="sendWhatsapp" class="popup-btn btn-login">
+        Enviar solicitação
+      </button>
 
-        document.getElementById('btnLogin').onclick = () => {
-            const email = document.getElementById('email').value;
-            const pass = document.getElementById('password').value;
-            
-            signInWithEmailAndPassword(auth, email, pass)
-                .then(() => {
-                    window.location.href = "admin.html";
-                })
-                .catch(error => {
-                    alert("Erro ao entrar: " + error.message);
-                });
-        };
-    </script>
+      <p id="closeModal" class="cancel">Cancelar</p>
+    </div>
+  </div>
 
-    <!-- Rodapé -->
-<footer class="footer">
-  <p class="rodape-final">
-    © <span id="anoAtual"></span> Desenvolvido por
-    <a href="https://github.com/daltonneres" target="_blank" style="color: #fff; text-decoration: none;">
-      Dalton Neres - Full Stack Developer
-    </a>
-    <br>
-    Todos os direitos reservados.
-  </p>
-</footer>
+  <!-- FIREBASE LOGIN -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-<script>
-  document.getElementById("anoAtual").textContent = new Date().getFullYear();
-</script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD-7iM7QKN8bKYY8CLm4df8wbyA1qvUZxw",
+      authDomain: "leadsportfolio-c4815.firebaseapp.com",
+      projectId: "leadsportfolio-c4815",
+      storageBucket: "leadsportfolio-c4815.firebasestorage.app",
+      messagingSenderId: "293134787082",
+      appId: "1:293134787082:web:73d7343134325733f2b5f3"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById('btnLogin').onclick = () => {
+      const email = document.getElementById('email').value;
+      const pass = document.getElementById('password').value;
+
+      signInWithEmailAndPassword(auth, email, pass)
+        .then(() => window.location.href = "admin.html")
+        .catch(error => alert("Erro ao entrar: " + error.message));
+    };
+  </script>
+
+  <!-- MODAL + WHATSAPP -->
+  <script>
+    const modal = document.getElementById('forgotModal');
+    const openBtn = document.getElementById('forgotPassword');
+    const closeBtn = document.getElementById('closeModal');
+
+    openBtn.onclick = () => modal.style.display = 'flex';
+    closeBtn.onclick = () => modal.style.display = 'none';
+
+    document.getElementById('sendWhatsapp').onclick = () => {
+      const email = document.getElementById('recoverEmail').value;
+      const newPass = document.getElementById('recoverPassword').value;
+
+      if (!email || !newPass) {
+        alert('Preencha todos os campos.');
+        return;
+      }
+
+      const phone = '5546999711937'; // Ex: 5511999999999
+      const message = `
+Solicitação de recuperação de acesso 🔐
+
+E-mail: ${email}
+Nova senha solicitada: ${newPass}
+      `.trim();
+
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    };
+  </script>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>
+      © <span id="anoAtual"></span> Desenvolvido por
+      <a href="https://github.com/daltonneres" target="_blank" style="color:#fff; text-decoration:none;">
+        Dalton Neres - Full Stack Developer
+      </a>
+      <br>
+      Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("anoAtual").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>

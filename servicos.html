@@ -167,13 +167,9 @@
   </p>
 
   <div class="servico-actions">
-    <a
-      href="https://wa.me/5546999711937?text=Olá%20Dalton,%20preciso%20de%20formatação%20ou%20suporte%20técnico."
-      target="_blank"
-      class="btn-primary"
-    >
-      💬 Falar no WhatsApp
-    </a>
+<a href="#" class="btn-primary" onclick="abrirModal('formatacao')">
+  💬 Solicitar serviço
+</a>
   </div>
 </div>
 
@@ -188,13 +184,9 @@
   </p>
 
   <div class="servico-actions">
-    <a
-      href="https://wa.me/5546999711937?text=Olá%20Dalton,%20preciso%20de%20remoção%20de%20vírus%20ou%20apps%20fantasmas."
-      target="_blank"
-      class="btn-primary"
-    >
-      💬 Falar no WhatsApp
-    </a>
+<a href="#" class="btn-primary" onclick="abrirModal('virus')">
+  💬 Solicitar serviço
+</a>
   </div>
 </div>
 
@@ -209,13 +201,27 @@
   </p>
 
   <div class="servico-actions">
-    <a
-      href="https://wa.me/5546999711937?text=Olá%20Dalton,%20preciso%20desbloquear%20ou%20recuperar%20um%20Android%20bloqueado."
-      target="_blank"
-      class="btn-primary"
-    >
-      💬 Falar no WhatsApp
-    </a>
+<a href="#" class="btn-primary" onclick="abrirModal('android')">
+  💬 Solicitar serviço
+</a>
+  </div>
+</div>
+
+<div class="servico-card">
+  <h3>💻 Formatação & Atualização de Sistema</h3>
+  <p>
+    Formatação completa de computadores com instalação do
+    <strong>Windows 11</strong>, drivers atualizados e softwares essenciais.
+    <br><br>
+    ✔ Pacote Office instalado (Word, Excel, PowerPoint)<br>
+    ✔ Programas básicos e otimização de desempenho<br>
+    ✔ Sistema limpo, rápido e seguro
+  </p>
+
+  <div class="servico-actions">
+<a href="javascript:void(0)" class="btn-primary" onclick="abrirModal('formatacao')">
+  💬 Solicitar serviço
+</a>
   </div>
 </div>
 
@@ -266,6 +272,58 @@
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
+
+  <script>
+let servicoSelecionado = "";
+
+function abrirModal(servico) {
+  servicoSelecionado = servico;
+
+  const titulo = {
+    formatacao: "Formatação & Sistema",
+    virus: "Remoção de Vírus",
+    android: "Desbloqueio Android"
+  };
+
+  document.getElementById("tituloServico").innerText = titulo[servico];
+  document.getElementById("modalServico").style.display = "flex";
+}
+
+function fecharModal() {
+  document.getElementById("modalServico").style.display = "none";
+}
+
+function enviarWhatsApp() {
+  const nome = document.getElementById("nome").value;
+  const modelo = document.getElementById("modelo").value;
+  const descricao = document.getElementById("descricao").value;
+
+  const msg = `Olá, me chamo ${nome}.
+Serviço: ${servicoSelecionado}
+Modelo: ${modelo}
+Problema: ${descricao}`;
+
+  const url = `https://wa.me/5546999711937?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+}
+</script>
+
+
+<div id="modalServico" class="modal">
+  <div class="modal-content">
+    <span class="fechar" onclick="fecharModal()">×</span>
+
+    <h2 id="tituloServico"></h2>
+
+    <input type="text" id="nome" placeholder="Seu nome">
+
+    <input type="text" id="modelo" placeholder="Modelo do aparelho ou computador">
+
+    <textarea id="descricao" placeholder="Descreva o problema"></textarea>
+
+    <button onclick="enviarWhatsApp()">Enviar no WhatsApp</button>
+  </div>
+</div>
 
 </body>
 </html>

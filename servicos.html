@@ -28,16 +28,6 @@
     </ul>
   </nav>
 
-  <!-- ACESSIBILIDADE -->
-  <div class="acessibilidade-container">
-    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
-    <div class="acessibilidade-menu" id="acessibilidadeMenu">
-      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
-      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
-      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
-    </div>
-  </div>
-
   <!-- INTRO -->
   <section class="fade-in servicos-intro">
     <h1>Soluções digitais para o seu negócio</h1>
@@ -146,18 +136,6 @@
           <a href="personalizado.html" class="btn-primary">🚀 Criar projeto</a>
           <a href="projetos.html" class="btn-secondary">Ver projetos</a>  </div>
 </div>
-
-      <div class="servico-card">
-        <h3>Acessibilidade Digital</h3>
-        <p>
-          Sites acessíveis com recursos de inclusão,
-          contraste, leitura e suporte a Libras.
-        </p>
-        <div class="servico-actions">
-          <a href="personalizado.html" class="btn-primary">🚀 Criar projeto</a>
-          <a href="projetos.html" class="btn-secondary">Ver projetos</a>
-        </div>
-      </div>
 
       <div class="servico-card">
   <h3>🍎 Reset e Recuperação de iPhone</h3>
@@ -271,28 +249,6 @@
       </a>
     </p>
   </footer>
-
-  <!-- ACESSIBILIDADE SCRIPT -->
-  <script>
-    let tamanhoFonteAtual = 100;
-    let contrasteAtivo = false;
-
-    function ajustarFonte(acao) {
-      if (acao === 'aumentar') tamanhoFonteAtual += 10;
-      if (acao === 'diminuir') tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
-      document.body.style.fontSize = tamanhoFonteAtual + '%';
-    }
-
-    function toggleContraste() {
-      contrasteAtivo = !contrasteAtivo;
-      document.body.classList.toggle('alto-contraste', contrasteAtivo);
-    }
-
-    function toggleAcessibilidade() {
-      const menu = document.getElementById("acessibilidadeMenu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
-  </script>
 
   <script>
 let servicoSelecionado = "";

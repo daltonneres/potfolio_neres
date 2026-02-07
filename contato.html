@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Entre em contato com Dalton Neres. Desenvolvedor Front-End focado em soluções digitais, acessibilidade e projetos com resultado real.">
+  <meta name="description" content="Entre em contato com Dalton Neres. Desenvolvedor Front-End focado em soluções digitais e projetos com resultado real.">
   <meta name="keywords" content="Contato Dalton Neres, Desenvolvedor Front-End, Projetos Web, Sistemas, Automação">
   <meta name="author" content="Dalton Neres">
   <meta name="robots" content="index, follow">
@@ -28,16 +28,6 @@
     <li><a href="contato.html" class="ativo">Contato</a></li>
   </ul>
 </nav>
-
-<!-- ACESSIBILIDADE -->
-<div class="acessibilidade-container">
-  <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
-  <div class="acessibilidade-menu" id="acessibilidadeMenu" style="display:none;">
-    <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
-    <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
-    <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
-  </div>
-</div>
 
 <!-- HERO -->
 <section class="fade-in contato-hero">
@@ -63,7 +53,7 @@
   </div>
 
   <p class="contato-observacao">
-    ⚡ Projetos focados em resultado, acessibilidade e crescimento real.
+    ⚡ Projetos focados em resultado e crescimento real.
   </p>
 
 </section>
@@ -161,28 +151,6 @@
 <div class="btn-container">
   <a href="index.html" class="btn">Voltar para o Início</a>
 </div>
-
-<!-- SCRIPTS ACESSIBILIDADE -->
-<script>
-  let tamanhoFonteAtual = 100;
-  let contrasteAtivo = false;
-
-  function ajustarFonte(acao) {
-    if (acao === 'aumentar') tamanhoFonteAtual += 10;
-    if (acao === 'diminuir') tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
-    document.body.style.fontSize = `${tamanhoFonteAtual}%`;
-  }
-
-  function toggleContraste() {
-    contrasteAtivo = !contrasteAtivo;
-    document.body.classList.toggle('alto-contraste', contrasteAtivo);
-  }
-
-  function toggleAcessibilidade() {
-    const menu = document.getElementById("acessibilidadeMenu");
-    menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "flex" : "none";
-  }
-</script>
 
 <!-- RODAPÉ -->
 <footer class="footer">

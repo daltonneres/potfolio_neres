@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Desenvolvedor Front-End com foco em acessibilidade, automação e soluções digitais modernas. Conheça Dalton Neres.">
-    <meta name="keywords" content="Dalton Neres, Desenvolvedor, Front-End, Acessibilidade, Programação, Tecnologia, Web, Software, Site, App">
+    <meta name="description" content="Desenvolvedor Front-End com foco em automação e soluções digitais modernas. Conheça Dalton Neres.">
+    <meta name="keywords" content="Dalton Neres, Desenvolvedor, Front-End, Programação, Tecnologia, Web, Software, Site, App">
     <meta name="author" content="Dalton Neres">
     <meta name="robots" content="index, follow">
     <title>Sobre | Dalton Neres</title>
@@ -24,15 +24,6 @@
     </ul>
   </nav>
 
-  <div class="acessibilidade-container">
-    <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
-    <div class="acessibilidade-menu" id="acessibilidadeMenu">
-      <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
-      <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
-      <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
-    </div>
-  </div>
-
 <section class="sobre fade-in">
   <h2>Conheça o Desenvolvedor</h2>
 
@@ -42,7 +33,7 @@
     Muito Prazer! Eu sou o <strong>Dalton José Neres</strong>, desenvolvedor Front-End,
     apaixonado por tecnologia e por transformar ideias em soluções digitais reais.
     Tenho 17 anos e atuo diretamente no desenvolvimento de sites, sistemas e automações
-    com foco em resultado, acessibilidade e performance.
+    com foco em resultado, experiência do usuário e performance.
   </p>
 
   <p>
@@ -77,11 +68,10 @@
   </p>
 
   <p>
-    Tenho grande interesse por <strong>acessibilidade digital</strong>,
+    Tenho grande interesse por <strong>experiência do usuário (UX)</strong>,
     <strong>automação de processos</strong> e <strong>desenvolvimento de sistemas completos</strong>,
     onde posso atuar desde a ideia inicial até a entrega final.
-    Acredito que tecnologia bem feita deve ser simples de usar,
-    inclusiva e gerar valor de verdade.
+    Acredito que tecnologia bem feita deve ser simples de usar, eficiente e gerar valor de verdade.
   </p>
 
   <p>
@@ -95,7 +85,7 @@
   <section class="objetivo fade-in">
     <h2 style="text-align: center;">🎯 Objetivo</h2>
     <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-      <strong>Criar experiências digitais acessíveis, modernas e completas</strong> — da interface ao servidor — sempre
+      <strong>Criar experiências digitais modernas, intuitivas e completas</strong> — da interface ao servidor — sempre
       com foco em impacto real para quem usa.
       <br><br>
       O que eu quero? <strong>Levar tecnologia para mudar vidas.</strong>
@@ -108,7 +98,7 @@
   <div class="filosofia-cards">
     <div class="filosofia-card">
       <h3>Missão</h3>
-      <p>Levar tecnologia acessível e soluções digitais modernas para impactar positivamente a vida das pessoas e empresas.</p>
+      <p>Levar tecnologia e soluções digitais modernas para impactar positivamente a vida das pessoas e empresas.</p>
     </div>
     <div class="filosofia-card">
       <h3>Visão</h3>
@@ -252,8 +242,8 @@
 <section class="skills fade-in">
   <h2>⚡ Tecnologias que Utilizo</h2>
   <p class="skills-subtitle">
-    Tecnologias aplicadas em projetos reais, com foco em performance, acessibilidade e resultado.
-  </p>
+Tecnologias aplicadas em projetos reais, com foco em performance, qualidade e resultado.
+</p>
 
   <div class="skills-container">
     <div class="skill-card">HTML5</div>
@@ -357,30 +347,6 @@
   <div class="btn-container">
     <a href="index.html" class="btn">Voltar para o Início</a>
   </div>
-
-  <script>
-    let tamanhoFonteAtual = 100;
-    let contrasteAtivo = false;
-
-    function ajustarFonte(acao) {
-      if (acao === 'aumentar') {
-        tamanhoFonteAtual += 10;
-      } else if (acao === 'diminuir') {
-        tamanhoFonteAtual = Math.max(60, tamanhoFonteAtual - 10);
-      }
-      document.body.style.fontSize = `${tamanhoFonteAtual}%`;
-    }
-
-    function toggleContraste() {
-      contrasteAtivo = !contrasteAtivo;
-      document.body.classList.toggle('alto-contraste', contrasteAtivo);
-    }
-
-    function toggleAcessibilidade() {
-      const menu = document.getElementById("acessibilidadeMenu");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-    }
-  </script>
 
 <!-- Rodapé -->
 <footer class="footer">

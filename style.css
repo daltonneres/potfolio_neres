@@ -2128,3 +2128,20 @@ body.alto-contraste .skills-subtitle {
   margin-top: 60px;
   padding-top: 20px;
 }
+
+.portfolio-intro-text {
+  text-align: center;          /* centraliza o texto */
+  font-size: 1.1rem;           /* tamanho levemente maior que o normal */
+  color: #555;                 /* cor neutra */
+  margin: 1rem 0 2rem 0;       /* espaçamento */
+  position: relative;
+}
+
+.portfolio-intro-text::before {
+  content: "";
+  display: block;
+  width: 60px;                 /* comprimento da linha */
+  height: 2px;                 /* espessura da linha */
+  background-color: #ffffff;      /* cor da linha */
+  margin: 0 auto 10px auto;    /* centraliza a linha e afasta do texto */
+}

@@ -26,16 +26,6 @@
   </ul>
 </nav>
 
-<!-- ACESSIBILIDADE -->
-<div class="acessibilidade-container">
-  <button class="acessibilidade-toggle" onclick="toggleAcessibilidade()">Acessibilidade</button>
-  <div class="acessibilidade-menu" id="acessibilidadeMenu">
-    <button onclick="ajustarFonte('aumentar')" class="font-btn">A+</button>
-    <button onclick="ajustarFonte('diminuir')" class="font-btn">A-</button>
-    <button onclick="toggleContraste()" class="font-btn">Alto Contraste</button>
-  </div>
-</div>
-
 <main class="fade-in">
 
 <!-- INTRO -->
@@ -152,28 +142,6 @@
     </a>
   </p>
 </footer>
-
-<!-- SCRIPTS -->
-<script>
-  let tamanhoFonteAtual = 100;
-  let contrasteAtivo = false;
-
-  function ajustarFonte(acao) {
-    tamanhoFonteAtual += (acao === 'aumentar') ? 10 : -10;
-    tamanhoFonteAtual = Math.max(70, tamanhoFonteAtual);
-    document.body.style.fontSize = tamanhoFonteAtual + '%';
-  }
-
-  function toggleContraste() {
-    contrasteAtivo = !contrasteAtivo;
-    document.body.classList.toggle('alto-contraste', contrasteAtivo);
-  }
-
-  function toggleAcessibilidade() {
-    const menu = document.getElementById("acessibilidadeMenu");
-    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-  }
-</script>
 
 </body>
 </html>

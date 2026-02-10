@@ -2125,23 +2125,28 @@ body.alto-contraste .skills-subtitle {
 
 /* Espaçamento geral entre seções para não “colar” tudo */
 .portfolio-section {
-  margin-top: 60px;
-  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  margin-bottom: 110px;
+}
+
+/* FAZ O TÍTULO E A DESCRIÇÃO FICAREM EM CIMA DOS CARDS */
+.portfolio-section h2,
+.portfolio-intro-text {
+  grid-column: 1 / -1;
 }
 
 .portfolio-intro-text {
-  text-align: center;          /* centraliza o texto */
-  font-size: 1.1rem;           /* tamanho levemente maior que o normal */
-  color: #555;                 /* cor neutra */
-  margin: 1rem 0 2rem 0;       /* espaçamento */
-  position: relative;
+  text-align: center;          
+  font-size: 1.1rem;           
+  color: #ffffff;   /* ← AGORA É BRANCO */
+  margin: 1rem auto 2rem auto; /* centraliza no meio */
+  max-width: 750px;            /* evita texto muito largo */
 }
 
-.portfolio-intro-text::before {
-  content: "";
-  display: block;
-  width: 60px;                 /* comprimento da linha */
-  height: 2px;                 /* espessura da linha */
-  background-color: #ffffff;      /* cor da linha */
-  margin: 0 auto 10px auto;    /* centraliza a linha e afasta do texto */
+.skill-card.destaque {
+  border: 2px solid #3b82f6;
+  font-weight: 700;
+  background: rgba(59, 130, 246, 0.1);
 }
